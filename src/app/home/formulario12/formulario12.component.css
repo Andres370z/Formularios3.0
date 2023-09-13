@@ -1,0 +1,40 @@
+.form {
+    width: 100%;
+}
+
+hr {
+    border-color: #02416B;
+}
+
+mat-list-item {
+    margin-bottom: 20px;
+}
+
+.mat-option:hover {
+    background: #02416B !important;
+}
+
+mat-list-item {
+    font-size: 12px;
+}
+
+mat-list-item mat-label {
+    font-size: 12px;
+}
+
+mat-list-item input {
+    font-size: 12px;
+}
+
+
+.card-header-rose {
+    height: 150px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-header-rose img {
+    width: 300px;
+}

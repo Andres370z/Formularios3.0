@@ -1,0 +1,59 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon" [style]="'--background-color: '+customerDetail.color+';'">
+              <i class="material-icons">dashboard</i>
+            </div>
+            <h4 class="card-title">HOME</h4>
+          </div>
+          <div class="card-body ">
+            <div class="table-responsive center-content">
+              <mat-tab-group class="wide-tab">
+                <mat-tab label="Resident Application & Information">
+                  <app-formulario1></app-formulario1>
+                </mat-tab>
+                <mat-tab label="RECOVERY AGREEMENT/PLAN">
+                  <app-formulario2></app-formulario2>
+                </mat-tab>
+                <mat-tab label="RESIDENT’S ACCEPTANCE AGREEMENT">
+                  <app-formulario3></app-formulario3>
+                </mat-tab>
+                <mat-tab label="CONFIDENTIALITY OF RESIDENTS RECORDS">
+                  <app-formulario4></app-formulario4>
+                </mat-tab>
+                <mat-tab label="Resident Rights Chapter 397.501 - Florida Statute">
+                  <app-formulario5></app-formulario5>
+                </mat-tab>
+                <mat-tab label="Good Neighbor Policy & Procedure">
+                  <app-formulario6></app-formulario6>
+                </mat-tab>
+                <mat-tab label="TERMINATION OF RESIDENCY/ZERO TOLERANCE POLICY">
+                  <app-formulario7></app-formulario7>
+                </mat-tab>
+                <mat-tab label="Hazardous Items Search Consent">
+                  <app-formulario8></app-formulario8>
+                </mat-tab>
+                <mat-tab label="DISCHARGE POLICY & PROCEDURE">
+                  <app-formulario9></app-formulario9>
+                </mat-tab>
+                <mat-tab label="Authorization for Release of Information">
+                  <app-formulario10></app-formulario10>
+                </mat-tab>
+                <mat-tab label="Phase Up Progress Tracking">
+                  <app-formulario11></app-formulario11>
+                </mat-tab>
+                <mat-tab label="Graduate Phase Up">
+                  <app-formulario12></app-formulario12>
+                </mat-tab>
+                
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

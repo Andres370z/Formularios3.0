@@ -1,0 +1,103 @@
+<div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <img src="./../../../assets/img/2 (1).png">
+    </div>
+    <div class="card-body mb-2">
+      <h2 class="card-title text-center ">TERMINATION OF RESIDENCY/ZERO TOLERANCE POLICY</h2>
+      <hr style="width:100%;">
+      <form class="form" [formGroup]="form" (ngSubmit)="saveData(form.value)">
+        <div class="row">
+          <div class="col-12">
+            <mat-list role="list">
+              <mat-list-item role="listitem">1. Under the influence of any alcohol, drugs or mind-altering substance.
+              </mat-list-item>
+              <mat-list-item role="listitem">2. Positive results determined by a U/A test administered by a director.
+              </mat-list-item>
+              <mat-list-item role="listitem">3. Possession of any alcohol, non-prescribed drug or prescribed narcotics.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                4.Abusing OTC or prescription medication 
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                5. Possession of any life-threatening weapon, on you or your property.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                6. Fighting and threatening or violent behavior on or off the property
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                7. Stealing food or personal property that is not yours.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                8. Borrowing or lending money.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                9. Any pattern of old thinking. Pushing the envelope or breaking the rules.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                10.Any women in units or on the property at all.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                11.Smoking in the apartment.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                12.Failure to comply with any of the rules and regulations or 4 Phase processes.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                13.Refusing to submit a U/A or a Breathalyzer test when asked.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                14.Violence in any way towards staff, clients, or the neighbors.
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                15.Violation of Good Neighbor Policy
+              </mat-list-item>
+
+  
+            </mat-list>
+  
+          </div>
+          <div class="col-6"> <!--Nombre Abreviado-->
+            <mat-form-field floatLabel="never">
+              <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept1">
+              <mat-hint class="text-center">Client Print Name</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-6"> <!--Nombre Abreviado-->
+            <mat-form-field floatLabel="never">
+              <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept2">
+              <mat-hint class="text-center">Director Print Name</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-6"> <!--Nombre Abreviado-->
+            <mat-form-field floatLabel="never">
+              <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept3">
+              <mat-hint class="text-center">Client Signature</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-6"> <!--Nombre Abreviado-->
+            <mat-form-field floatLabel="never">
+              <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept4">
+              <mat-hint class="text-center">Director Signature</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-6"> <!--Nombre Abreviado-->
+            <mat-form-field floatLabel="never">
+              <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept5">
+              <mat-hint class="text-center">Todays Date </mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-6"> <!--Nombre Abreviado-->
+            <mat-form-field floatLabel="never">
+              <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept6">
+              <mat-hint class="text-center">Todays Date </mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-12 card-footer "> <!--BOTON-->
+            <button mat-raised-button type="submit" class="btn btn-fill btn-rose" style="background-color: #02416B"
+              [disabled]="form.invalid">Send Form</button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
