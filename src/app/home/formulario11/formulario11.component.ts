@@ -11,7 +11,8 @@ export class Formulario11Component implements OnInit {
   public form: FormGroup;
   public selectedOption: any;
   public createForm: any;
-
+  public picker1: any;
+  public picker2: any
   constructor(
     private myFormBuilder: FormBuilder,
   ) { }

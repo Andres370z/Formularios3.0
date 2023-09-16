@@ -35,6 +35,7 @@ export class Formulario2Component implements OnInit {
       acept10: [Menssage.empty, Validators.compose([Validators.required])],
       acept11: [Menssage.empty, Validators.compose([Validators.required])],
       acept12: [Menssage.empty, Validators.compose([Validators.required])],
+      acept13: [Menssage.empty, Validators.compose([Validators.required])],
     })
   }
   saveData(item: any){

@@ -21,3 +21,7 @@ hr {
 .card-header-rose img {
     width: 300px;
 }
+.mat-list-item{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}

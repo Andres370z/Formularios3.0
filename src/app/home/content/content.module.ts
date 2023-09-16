@@ -6,6 +6,7 @@ import { ContentComponent } from './content.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { Formulario1Component } from '../formulario1/formulario1.component';
 import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
@@ -28,6 +29,7 @@ import { Formulario9Component } from '../formulario9/formulario9.component';
 import { Formulario10Component } from '../formulario10/formulario10.component';
 import { Formulario11Component } from '../formulario11/formulario11.component';
 import { Formulario12Component } from '../formulario12/formulario12.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { Formulario12Component } from '../formulario12/formulario12.component';
     MatNativeDateModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule,
+    MatCheckboxModule
   ]
 })
 export class ContentModule { }
