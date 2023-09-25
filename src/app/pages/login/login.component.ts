@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
               console.log(token)
               this.getCustomerDetail(token)
             } else {
-              let token = "ErLCUZBtopFI7hfx4ShACW8OROgHhL2h6eh4RVKQas02QaMn5w";
+              let token = "ec37bfee30f8d0717b194ce47d8d1cd4";
               this.getCustomerDetail(token)
             }
         })

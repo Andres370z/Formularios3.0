@@ -1,18 +1,17 @@
 <div class="logo">
 
-  <a href="https://www.creative-tim.com" class="simple-text logo-normal" style="--dropdown-color: #fff;">
-    <h4>Time For Change <br>RECOVERY HOUSE</h4>
-  </a>
-  <div class="photoPerfil" style="text-align: center;">
-    <img src="./../../assets/img/1 (1).png" alt=""
-      style="max-width: 400px; max-height: 200px; width: auto; height: auto;">
-  </div>
+    <a href="https://www.creative-tim.com" class="simple-text logo-normal" style="--dropdown-color: #fff;">
+        <h4>Time For Change <br>RECOVERY HOUSE</h4>
+    </a>
+    <div class="photoPerfil" style="text-align: center;">
+        <img src="./../../assets/img/1 (1).png" alt="" style="max-width: 400px; max-height: 200px; width: auto; height: auto;">
+    </div>
 </div>
 
 
 <div class="sidebar-wrapper">
 
-  <!-- <div class="user">
+    <!-- <div class="user">
     <div class="photo">
       <img [src]="'https://api.scanapp.com.co/img/logo/'+customerDetail.imgLogo" />
     </div>
@@ -42,25 +41,31 @@
       </div>
     </div>
   </div> -->
-  <div *ngIf="isMobileMenu()">
-  </div>
-  <ul class="nav" *ngIf="menuItems.length != 0">
-    <li class="nav-item">
-      <!-- Single link -->
-      <a (click)="navigate('home/content')" class="nav-link" style="--dropdown-color: #fff;">
-        <i class="material-icons" style="--dropdown-color: #fff;"><mat-icon>dashboard</mat-icon></i>
-        <p>My Apps</p>
-      </a>
-    </li>
-  </ul>
-  <div class="item-exit" (click)="logout()">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" style="--dropdown-color: #fff;">
-          <i class="material-icons" style="--dropdown-color: #fff;">logout</i>
-          <p>Salir</p>
-        </a>
-      </li>
+    <div *ngIf="isMobileMenu()">
+    </div>
+    <ul class="nav" *ngIf="menuItems.length != 0">
+        <li class="nav-item">
+            <!-- Single link -->
+            <a (click)="navigate('home/content')" class="nav-link" style="--dropdown-color: #fff;">
+                <i class="material-icons" style="--dropdown-color: #fff;"><mat-icon>dashboard</mat-icon></i>
+                <p>My Apps</p>
+            </a>
+        </li>
+        <li class="nav-item" (click)="logout()">
+            <a class="nav-link" style="--dropdown-color: #fff;">
+                <i class="material-icons" style="--dropdown-color: #fff;">logout</i>
+                <p>Salir</p>
+            </a>
+        </li>
     </ul>
-  </div>
+    <div class="item-exit" (click)="logout()">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" style="--dropdown-color: #fff;">
+                    <i class="material-icons" style="--dropdown-color: #fff;">logout</i>
+                    <p>Salir</p>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
