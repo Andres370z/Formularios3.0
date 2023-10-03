@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignaturePad } from 'angular2-signaturepad';
 import { Menssage } from 'src/app/models/router';
 
 @Component({
@@ -8,6 +9,7 @@ import { Menssage } from 'src/app/models/router';
   styleUrls: ['./formulario12.component.css']
 })
 export class Formulario12Component implements OnInit {
+  @ViewChild(SignaturePad) signaturePad!: SignaturePad;
   public form: FormGroup;
   public selectedOption: any;
   public createForm: any;
@@ -57,6 +59,12 @@ export class Formulario12Component implements OnInit {
       acept3: [Menssage.empty, Validators.compose([Validators.required])],
 
     })
+  }
+  drawStart(){
+
+  }
+  drawComplete(){
+    
   }
   saveData(item: any){
     console.log(this.form);

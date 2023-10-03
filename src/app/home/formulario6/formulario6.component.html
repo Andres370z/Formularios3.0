@@ -50,30 +50,35 @@
         <div class="col-6"> <!--Nombre Abreviado-->
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept1">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Client Print Name</mat-hint>
           </mat-form-field>
         </div>
         <div class="col-6"> <!--Nombre Abreviado-->
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept2">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Director Print Name</mat-hint>
           </mat-form-field>
         </div>
         <div class="col-6"> <!--Nombre Abreviado-->
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept3">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Client Signature</mat-hint>
           </mat-form-field>
         </div>
         <div class="col-6"> <!--Nombre Abreviado-->
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept4">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Director Signature</mat-hint>
           </mat-form-field>
         </div>
         <div class="col-6"> <!--Nombre Abreviado-->
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept5">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Todays Date </mat-hint>
           </mat-form-field>
         </div>

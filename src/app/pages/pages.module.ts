@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PagesRoutes } from './pages.routing';
 
 import { LoginComponent } from './login/login.component';
+import { NewRegisterComponent } from './new-register/new-register.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { LoginComponent } from './login/login.component';
   ],
   declarations: [
     LoginComponent,
+    NewRegisterComponent
   ]
 })
 

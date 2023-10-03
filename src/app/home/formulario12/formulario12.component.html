@@ -259,18 +259,21 @@
         <div class="col-6"> 
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept1">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Eligible To Gradute Program</mat-hint>
           </mat-form-field>
         </div>
         <div class="col-6"> 
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept2">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Date of Completion</mat-hint>
           </mat-form-field>
         </div>
         <div class="col-8"> 
           <mat-form-field floatLabel="never">
             <input matInput required style="font-size: 18px;" class="text-center" formControlName="acept3">
+            <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad><br>
             <mat-hint class="text-center">Director Signature</mat-hint>
           </mat-form-field>
         </div>

@@ -30,8 +30,7 @@ import { Formulario10Component } from '../formulario10/formulario10.component';
 import { Formulario11Component } from '../formulario11/formulario11.component';
 import { Formulario12Component } from '../formulario12/formulario12.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
-
+import { SignaturePadModule } from 'angular2-signaturepad';
 @NgModule({
   declarations: [
     ContentComponent,
@@ -65,7 +64,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatFormFieldModule,
     MatListModule,
     MatStepperModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    SignaturePadModule 
   ]
 })
 export class ContentModule { }
