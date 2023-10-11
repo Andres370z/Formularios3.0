@@ -1,107 +1,107 @@
 <div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card ">
-          <div class="card-header card-header-rose card-header-icon">
-            <div class="card-icon" [style]="'--background-color: '+customerDetail.color+';'">
-              <i class="material-icons">dashboard</i>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon" [style]="'--background-color: '+customerDetail.color+';'">
+                            <i class="material-icons">dashboard</i>
+                        </div>
+                        <h4 class="card-title">HOME</h4>
+                    </div>
+                    <div class="card-body ">
+                        <div class="table-responsive center-content">
+
+                            <mat-horizontal-stepper labelPosition="bottom" #stepper>
+                                <mat-step>
+                                    <app-formulario1 (questionResult)="questionResult($event)"></app-formulario1>
+                                    <div>
+                                        <button mat-button matStepperNext *ngIf="question">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question">
+                                    <app-formulario2 (questionResult1)="questionResult1($event)"></app-formulario2>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question2">
+                                    <app-formulario3 (questionResult2)="questionResult2($event)"></app-formulario3>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question3">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question3">
+                                    <app-formulario4 (questionResult3)="questionResult3($event)"></app-formulario4>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question4">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question4">
+                                    <app-formulario5 (questionResult4)="questionResult4($event)"></app-formulario5>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question5">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question5">
+                                    <app-formulario6 (questionResult5)="questionResult5($event)"></app-formulario6>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question6">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question6">
+                                    <app-formulario7 (questionResult6)="questionResult6($event)"></app-formulario7>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question7">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question7">
+                                    <app-formulario8 (questionResult7)="questionResult7($event)"></app-formulario8>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question8">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question8">
+                                    <app-formulario9 (questionResult8)="questionResult8($event)"></app-formulario9>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question9">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question9">
+                                    <app-formulario10 (questionResult9)="questionResult9($event)"></app-formulario10>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question10">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question10">
+                                    <app-formulario11 (questionResult10)="questionResult10($event)"></app-formulario11>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question11">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="question11">
+                                    <app-formulario12></app-formulario12>
+                                    <div>
+                                        <button mat-button matStepperNext>Next</button>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                    </div>
+                                </mat-step>
+                            </mat-horizontal-stepper>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h4 class="card-title">HOME</h4>
-          </div>
-          <div class="card-body ">
-            <div class="table-responsive center-content">
-              
-              <mat-horizontal-stepper labelPosition="bottom" #stepper>
-                <mat-step>
-                  <app-formulario1></app-formulario1>
-                  <div>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario2></app-formulario2>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario3></app-formulario3>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario4></app-formulario4>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario5></app-formulario5>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario6></app-formulario6>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario7></app-formulario7>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario8></app-formulario8>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario9></app-formulario9>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario10></app-formulario10>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario11></app-formulario11>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </mat-step>
-                <mat-step>
-                  <app-formulario12></app-formulario12>
-                  <div>
-                    <button mat-button matStepperNext>Next</button>
-                    <button mat-button matStepperPrevious>Back</button>
-                  </div>
-                </mat-step>
-              </mat-horizontal-stepper>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <!-- h as-->

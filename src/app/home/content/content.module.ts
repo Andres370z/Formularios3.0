@@ -29,8 +29,10 @@ import { Formulario9Component } from '../formulario9/formulario9.component';
 import { Formulario10Component } from '../formulario10/formulario10.component';
 import { Formulario11Component } from '../formulario11/formulario11.component';
 import { Formulario12Component } from '../formulario12/formulario12.component';
+import { SignatureDirectorComponent } from 'src/app/components/signature-director/signature-director.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { SignatureClientsComponent } from 'src/app/components/signature-clients/signature-clients.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     Formulario10Component,
     Formulario11Component,
     Formulario12Component,
+    SignatureDirectorComponent,
+    SignatureClientsComponent,
   ],
   imports: [
     CommonModule,
@@ -65,7 +69,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatFormFieldModule,
     MatListModule,
     MatStepperModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    SignaturePadModule 
   ]
 })
 export class ContentModule { }

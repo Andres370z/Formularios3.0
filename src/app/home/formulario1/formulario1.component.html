@@ -1,474 +1,481 @@
 <div class="card ">
-  <div class="card-header card-header-rose card-header-icon">
-    <img src="./../../../assets/img/2 (1).png">
-  </div>
-  <div class="card-body pt-2">
-    <h3 class="text-center card-title">Resident Application & Information</h3>
-    <form class="form" [formGroup]="form" (ngSubmit)="saveData()">
-      <div class="row">
-        <div class="col-2">
-          <mat-form-field appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="date">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Client Name</mat-label>
-            <input matInput placeholder="enter your name" formControlName="names" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Phone #:</mat-label>
-            <input matInput placeholder="enter your cell phone" formControlName="phone" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Date of Birth</mat-label>
-            <input matInput [matDatepicker]="picker2" formControlName="birthdate">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
-        </div>
+    <div class="card-header card-header-rose card-header-icon">
+        <img src="./../../../assets/img/2 (1).png">
+    </div>
+    <div class="card-body pt-2">
+        <h3 class="text-center card-title">Resident Application & Information</h3>
+        <form class="form" [formGroup]="form" (ngSubmit)="saveData()">
+            <div class="row">
+                <div class="col-2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker1" formControlName="chooseDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Client Name</mat-label>
+                        <input matInput placeholder="enter your name" formControlName="clientName" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Phone #:</mat-label>
+                        <input matInput placeholder="enter your cell phone" formControlName="phone" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="dateOfBirth">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
 
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>DL Number</mat-label>
-            <input matInput placeholder="enter your ID" formControlName="dlNumber" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="enter your state" formControlName="state" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Exp. Date</mat-label>
-            <input matInput placeholder="enter this field" formControlName="expDate" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>DL Number</mat-label>
+                        <input matInput placeholder="enter your ID" formControlName="dlNumber" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>State</mat-label>
+                        <input matInput placeholder="enter your state" formControlName="state" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Exp. Date</mat-label>
+                        <input matInput [matDatepicker]="picker3" formControlName="expDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                    </mat-form-field>
+                </div>
 
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Do you Have A Vehicle? </mat-label>
-            <mat-select formControlName="vehicleQuestion">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, Make/Model?</mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifSo" type="text">
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Licens Plate #:</mat-label>
-            <input matInput placeholder="enter this field" formControlName="licensPlate" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="enter this field" formControlName="state2" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-
-
-        <!-- Emergency Contact 1 -->
-        <hr style="width:80%;">
-        <h4 class="card-title text-center">Emergency Contact 1</h4>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Emergency Contact</mat-label>
-            <input matInput placeholder="enter this field" formControlName="emergency" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Relationship</mat-label>
-            <input matInput placeholder="enter this field" formControlName="relationship" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Home Phone</mat-label>
-            <input matInput placeholder="enter this field" formControlName="homePhone" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Cell Phone</mat-label>
-            <input matInput placeholder="enter this field" formControlName="cellPhone" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-
-        <!-- Emergency Contact 2 -->
-        <hr style="width:80%;">
-        <h4 class="card-title" style="text-align: center;">Emergency Contact 2</h4>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Emergency Contact</mat-label>
-            <input matInput placeholder="enter this field" formControlName="emergency2" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Relationship</mat-label>
-            <input matInput placeholder="enter this field" formControlName="relationship2" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Home Phone</mat-label>
-            <input matInput placeholder="enter this field" formControlName="homePhone2" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Cell Phone</mat-label>
-            <input matInput placeholder="enter this field" formControlName="cellPhone2" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Do you Have A Vehicle? </mat-label>
+                        <mat-select formControlName="vehicleQuestion">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, Make/Model?</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="ifSo" type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Licens Plate #:</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="licensPlate" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>State</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="stateLicens" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
 
 
-        <!-- Employers -->
-        <hr style="width:90%;">
-        <h4 class="card-title text-center">Employers</h4>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Employers</mat-label>
-            <input matInput placeholder="enter this field" formControlName="employers" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Adress</mat-label>
-            <input matInput placeholder="enter this field" formControlName="adress" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Phone</mat-label>
-            <input matInput placeholder="enter this field" formControlName="phoneEmploye" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Supervisor Name</mat-label>
-            <input matInput placeholder="enter this field" formControlName="superName" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
+                <!-- Emergency Contact 1 -->
+                <hr style="width:80%;">
+                <h4 class="card-title text-center">Emergency Contact 1</h4>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Emergency Contact</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="emergencyContact" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Relationship</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="relationship" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Home Phone</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="homePhone" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Cell Phone</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="cellPhone" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <!-- Emergency Contact 2 -->
+                <hr style="width:80%;">
+                <h4 class="card-title" style="text-align: center;">Emergency Contact 2</h4>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Emergency Contact</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="emergencyContact2" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Relationship</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="relationship2" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Home Phone</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="homePhone2" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Cell Phone</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="cellPhone2" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
 
 
-        <!-- Status -->
-        <hr style="width:90%;">
-        <h4 class="card-title text-center">Status</h4>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Relationship Status: </mat-label>
-            <mat-select formControlName="statusQuestion">
-              <mat-option value="Married">Married</mat-option>
-              <mat-option value="Single">Single</mat-option>
-              <mat-option value="Divorced">Divorced</mat-option>
-              <mat-option value="Seperated">Seperated</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Do You Have Children: </mat-label>
-            <mat-select formControlName="childrenQuestion">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-4" *ngIf="form.get('childrenQuestion').value ==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, How Many:</mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifChildren" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Have you ever had suicidal thoughts? </mat-label>
-            <mat-select formControlName="suicidalThoughts">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-4" *ngIf="form.get('suicidalThoughts').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, When?</mat-label>
-            <input matInput placeholder="enter this field" formControlName="IfSoWhen0" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4" *ngIf="form.get('IfSoWhen0').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>Is It Current? </mat-label>
-            <mat-select formControlName="Current">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Have You Been Arrested?</mat-label>
-            <mat-select formControlName="Arrested">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('Arrested').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, When?</mat-label>
-            <input matInput placeholder="enter this field" type="text" formControlName="ifArrested">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Have You Been Convicted? </mat-label>
-            <mat-select formControlName="Convicted">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('Convicted').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, For What?</mat-label>
-            <input matInput placeholder="enter this field" formControlName="forWhat" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Are You A Sex Offender?</mat-label>
-            <mat-select formControlName="sexOffender">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Are You On Probation?</mat-label>
-            <mat-select formControlName="Probation">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('Probation').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>Start/End Date:</mat-label>
-            <input matInput placeholder="enter this field" formControlName="StartendDate" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('Probation').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>Officer Name:</mat-label>
-            <input matInput placeholder="enter this field" formControlName="OfficerName" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('Probation').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>Phone #:</mat-label>
-            <input matInput placeholder="enter this field" formControlName="Phone3" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-
-        <!-- Medications -->
-        <hr style="width:90%;">
-        <h4 class="card-title text-center">Medications</h4>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Do You Take Medications? </mat-label>
-            <mat-select formControlName="medications">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('medications').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>How Many? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifmedications" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-12" *ngIf="form.get('medications').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>List Medications: </mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..." formControlName="medicationsList"></textarea>
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Any Mental Health Issues </mat-label>
-            <mat-select formControlName="mentalHealth">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, what? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifSowhat" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
+                <!-- Employers -->
+                <hr style="width:90%;">
+                <h4 class="card-title text-center">Employers</h4>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Employers</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="employers" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Adress</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="adress" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Phone</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="phoneEmploye" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Supervisor Name</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="superName" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
 
 
-        <!-- Treatment -->
-        <hr style="width:90%;">
-        <h4 class="card-title text-center">Treatment</h4>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Have You Been In Treatment? </mat-label>
-            <mat-select formControlName="treatment">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('treatment').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, When? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifSowhen" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('treatment').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, Where? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifSowhere" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Did You Learn Anything? </mat-label>
-            <input matInput placeholder="enter this field" type="text" formArrayName="Learn">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Have You Been In Halfway?</mat-label>
-            <mat-select formControlName="halfway">
-              <mat-option value="yes">Yes</mat-option>
-              <mat-option value="no">No</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="col-6" *ngIf="form.get('halfway').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, When? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifSowhen2" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-12" *ngIf="form.get('halfway').value==='yes'">
-          <mat-form-field appearance="fill">
-            <mat-label>If So, Where? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="ifSowhere2" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-12">
-          <mat-form-field appearance="fill">
-            <mat-label>Did You Learn Anything? </mat-label>
-            <input matInput placeholder="enter this field" type="text" formArrayName="Learn1">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Drug Of Choice? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="choice" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Last Use? </mat-label>
-            <input matInput placeholder="enter this field" formControlName="lastUse" type="text">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>How Often Did You Use? </mat-label>
-            <input matInput placeholder="enter this field"type="text" formControlName="HowOften">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>What Is Most Important Today?</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..." formControlName="MostImportantToday"></textarea>
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field appearance="fill">
-            <mat-label>Do You Have Any Goals?</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..." formControlName="HaveAnyGoals"></textarea>
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
+                <!-- Status -->
+                <hr style="width:90%;">
+                <h4 class="card-title text-center">Status</h4>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Relationship Status: </mat-label>
+                        <mat-select formControlName="relationShipStatus">
+                            <mat-option value="Married">Married</mat-option>
+                            <mat-option value="Single">Single</mat-option>
+                            <mat-option value="Divorced">Divorced</mat-option>
+                            <mat-option value="Seperated">Seperated</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Do You Have Children: </mat-label>
+                        <mat-select formControlName="statusChildren">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="form.get('statusChildren').value ==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, How Many:</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="statusIfArrested" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have you ever had suicidal thoughts? </mat-label>
+                        <mat-select formControlName="statusSuicidalThoughts">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="form.get('statusSuicidalThoughts').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, When?</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="statusIfSoWhen" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="form.get('statusSuicidalThoughts').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Is It Current? </mat-label>
+                        <mat-select formControlName="statusCurrent">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been Arrested?</mat-label>
+                        <mat-select formControlName="statusArrested">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('statusArrested').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, When?</mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="statusIfArrested">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been Convicted? </mat-label>
+                        <mat-select formControlName="statusConvicted">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('statusConvicted').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, For What?</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="statusForWhat" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Are You A Sex Offender?</mat-label>
+                        <mat-select formControlName="statusSexOffender">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Are You On Probation?</mat-label>
+                        <mat-select formControlName="statusOnProbation">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('statusOnProbation').value==='yes'">
+                    <mat-form-field>
+                        <mat-label>Start/End Date</mat-label>
+                        <mat-date-range-input [rangePicker]="picker4">
+                            <input matStartDate placeholder="Start date" formControlName="statusStartDate">
+                            <input matEndDate placeholder="End date" formControlName="statusEndDate">
+                        </mat-date-range-input>
+                        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker4></mat-date-range-picker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('statusOnProbation').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Officer Name:</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="statusOfficerName" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('statusOnProbation').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Phone #:</mat-label>
+                        <input matInput placeholder="enter this field" formControlName="statusPhone" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
 
-        <div class="col-12 card-footer "> <!--BOTON-->
-          <button mat-raised-button type="submit" class="btn btn-fill btn-rose" style="background-color: #02416B"
-            [disabled]="form.invalid">Send Form</button>
-        </div>
-      </div>
-    </form>
-  </div>
+                <!-- Medications -->
+                <hr style="width:90%;">
+                <h4 class="card-title text-center">Medications</h4>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Do You Take Medications? </mat-label>
+                        <mat-select formControlName="takeMedications">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('takeMedications').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>How Many? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="ifmedications" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-12" *ngIf="form.get('takeMedications').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>List Medications: </mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="medicationsList"></textarea>
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Any Mental Health Issues </mat-label>
+                        <mat-select formControlName="mentalHealth">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, what? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="ifSowhat" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+
+
+                <!-- Treatment -->
+                <hr style="width:90%;">
+                <h4 class="card-title text-center">Treatment</h4>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been In Treatment? </mat-label>
+                        <mat-select formControlName="beenTreatment">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('beenTreatment').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, When? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="treatmentIfSowhen" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('beenTreatment').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, Where? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="treatmentIfSowhere" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Did You Learn Anything? </mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="treatmentLearnAnything">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been In Halfway?</mat-label>
+                        <mat-select formControlName="treatmentHalfway">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="form.get('treatmentHalfway').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, When? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="treatmentIfSowhenOne" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-12" *ngIf="form.get('treatmentHalfway').value==='yes'">
+                    <mat-form-field appearance="fill">
+                        <mat-label>If So, Where? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="treatmentIfSowhereTwo" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-12">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Did You Learn Anything? </mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="treatmentLearnAnythingOne">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Drug Of Choice? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="treatmentChoice" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Use? </mat-label>
+                        <input matInput placeholder="enter this field" formControlName="treatmentLastUse" type="text">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>How Often Did You Use? </mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="treatmentHowOften">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>What Is Most Important Today?</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="treatmentMostImportantToday"></textarea>
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Do You Have Any Goals?</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="treatmentHaveAnyGoals"></textarea>
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-12 card-footer ">
+                    <!--BOTON-->
+                    <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid">Send Form</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 <!-- f -->

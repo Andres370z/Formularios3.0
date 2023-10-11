@@ -42,13 +42,14 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
       this.location = location;
       this.usersData = this.localStore.getSuccessLogin();
       this.customerDetail = this.localStore.getItem(Menssage.customerDetail)
+      console.log(this.customerDetail)
       var data =  this.localStore.getItem(Menssage.menu)
-      this.menuItemsStore = data == null ? []: data
+     /*  this.menuItemsStore = data == null ? []: data
       if (this.menuItemsStore.length == 0) {
           this.getMenu(this.usersData.user.idrol);
       }else{
           this.menuItems = this.menuItemsStore.filter(menuItem => menuItem);
-      }
+      } */
     }
     ngOnInit() {
         const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');

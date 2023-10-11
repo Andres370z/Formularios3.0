@@ -1,218 +1,218 @@
 <div class="card ">
-  <div class="card-header card-header-rose card-header-icon">
-    <img src="./../../../assets/img/2 (1).png">
-  </div>
-  <div class="card-body mb-2">
-    <h2 class="card-title text-center ">Phase Up Progress Tracking (Phase 1)</h2>
-    <hr style="width:100%;">
-    <form class="form" [formGroup]="form" (ngSubmit)="saveData(form.value)">
-      <div class="row">
-        <div class="col-10">
-          <mat-form-field appearance="fill">
-            <mat-label>Client Name:</mat-label>
-            <input matInput placeholder="enter this field" type="text" formControlName="clientName">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-
-        <div class="col-2">
-          <mat-form-field appearance="fill">
-            <mat-label>Unit</mat-label>
-            <input matInput placeholder="enter this field" type="text" formControlName="Unit">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-
-        </div>
+    <div class="card-header card-header-rose card-header-icon">
+        <img src="./../../../assets/img/2 (1).png">
+    </div>
+    <div class="card-body mb-2">
+        <h2 class="card-title text-center ">Phase Up Progress Tracking (Phase 1)</h2>
         <hr style="width:100%;">
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="date">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="col-8 mb-2">
-          <mat-form-field appearance="fill">
-            <mat-label>Director</mat-label>
-            <input matInput placeholder="enter this field" type="text" formControlName="director">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
+        <form class="form" [formGroup]="form" (ngSubmit)="saveData(form.value)">
+            <div class="row">
+                <div class="col-10">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Client Name:</mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="clientName">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
 
-        <div class="col-4 mt-4">
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Sponsor</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="Sponsor">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>HomeGroup</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="HomeGroup">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>30 Meetings</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="TMeetings">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Program Dues Paid:</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="Program">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Employment</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="Employment">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Completed Any Steps</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="Steps">
-              </mat-form-field>
-            </mat-list-item>
-          </mat-list>
-        </div>
-        <div class="col-8 mt-4">
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Sponsor Name</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="SponsorName">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>HomeGroup Name</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="HomeGroupName">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Meeting Sheet</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="MeetingSheet">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Program Balance</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="ProgramBalance">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Employer Name</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="EmploymentName">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Current Step</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="CurrentStep">
-              </mat-form-field>
-            </mat-list-item>
-          </mat-list>
-        </div>
-        <div class="col-12">
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Comments & Notes:</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-          </mat-form-field>
-        </div>
-        
-        <!-- Phase Up Progress Tracking (Phase 2 -->
-        <div class="col-12">
-          <h2 class="card-title text-center ">Phase Up Progress Tracking (Phase 2)</h2>
-        <hr style="width:100%;">
-        </div>
-        <div class="col-4">
-          <mat-form-field appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker2" formControlName="date2">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="col-8 mb-2">
-          <mat-form-field appearance="fill">
-            <mat-label>Director</mat-label>
-            <input matInput placeholder="enter this field" type="text" formControlName="director2">
-            <mat-hint>This field is required *</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="col-4 mt-4">
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Commitment</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="Commitment">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>30 Meetings</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="TMeetingsTwo">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Program Dues Paid</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="Paid">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Completed Step 5</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="StepFive">
-              </mat-form-field>
-            </mat-list-item>
-          </mat-list>
-        </div>
+                <div class="col-2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Unit</mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="unit">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
 
-        <div class="col-8 mt-4">
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Type of Commitment</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="Commitment2">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Program Balance</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="ProgramBalance2">
-              </mat-form-field>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <mat-form-field appearance="fill">
-                <mat-label>Current Step</mat-label>
-                <input matInput placeholder="enter this field" type="text" formControlName="CurrentStep2">
-              </mat-form-field>
-            </mat-list-item>
-          </mat-list>
-        </div>
-        <div class="col-12">
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Comments & Notes:</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-          </mat-form-field>
-        </div>
-        <div class="col-12 card-footer "> <!--BOTON-->
-          <button mat-raised-button type="submit" class="btn btn-fill btn-rose" style="background-color: #02416B"
-            [disabled]="form.invalid">Send Form</button>
-        </div>
-      </div>
-    </form>
-  </div>
+                </div>
+                <hr style="width:100%;">
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker1" formControlName="chooseDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-8 mb-2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Director</mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="director">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-4 mt-4">
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Sponsor</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="sponsor">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>HomeGroup</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="homeGroup">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>30 Meetings</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="meeting">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Program Dues Paid:</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="programDuesPaid">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Employment</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="employment">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Completed Any Steps</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="anySteps">
+                            </mat-form-field>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+                <div class="col-8 mt-4">
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Sponsor Name</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="sponsorName">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>HomeGroup Name</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="homeGroupName">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Meeting Sheet</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="meetingSheet">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Program Balance</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="programBalance">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Employer Name</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="employmentName">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Current Step</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="currentStep">
+                            </mat-form-field>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+                <div class="col-12">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Comments & Notes:</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="commentsNotes"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <!-- Phase Up Progress Tracking (Phase 2 -->
+                <div class="col-12">
+                    <h2 class="card-title text-center ">Phase Up Progress Tracking (Phase 2)</h2>
+                    <hr style="width:100%;">
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="chooseDateOne">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-8 mb-2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Director</mat-label>
+                        <input matInput placeholder="enter this field" type="text" formControlName="directorOne">
+                        <mat-hint>This field is required *</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-4 mt-4">
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Commitment</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="commitmentOne">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>30 Meetings</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="meetingOne">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Program Dues Paid</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="programDuesPaidOne">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Completed Step 5</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="completedStepOne">
+                            </mat-form-field>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+                <div class="col-8 mt-4">
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Type of Commitment</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="typeCommitmentOne">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Program Balance</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="programBalanceOne">
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Current Step</mat-label>
+                                <input matInput placeholder="enter this field" type="text" formControlName="currentStepOne">
+                            </mat-form-field>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+                <div class="col-12">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Comments & Notes:</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="commentsNotesOne"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 card-footer ">
+                    <!--BOTON-->
+                    <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid" *ngIf="disabled">Send Form</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>

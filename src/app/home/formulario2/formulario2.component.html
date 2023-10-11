@@ -1,152 +1,131 @@
 <div class="card ">
-  <div class="card-header card-header-rose card-header-icon">
-    <img src="./../../../assets/img/2 (1).png">
-  </div>
-  <div class="card-body mb-2">
-    <h2 class="card-title text-center ">RECOVERY AGREEMENT/PLAN</h2>
-    <div class="col-12 custom-center">
-      <h4 class="font-header text-center" style="font-size: 19px;">
-        By initialing each requirement, you agree to abide and follow the rules and guidelines setforth in the
-        <br> agreement to reside in the Time For Change Recovery House 4 Phase Program.
-      </h4>
-      <hr style="width:100%;">
+    <div class="card-header card-header-rose card-header-icon">
+        <img src="./../../../assets/img/2 (1).png">
     </div>
-      
-    <form class="form" [formGroup]="form" (ngSubmit)="saveData(form.value)">
-      <div class="row">
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept1"></mat-checkbox>
-              will go to 12 step meetings. I will get a sponsor. I will get a home group. I will work all 12 steps. I will get phone numbers from other recovering persons in recovery and build a support
-            </p>
-          </div>
-        </div>
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept2"></mat-checkbox>
-              I will remain abstinent from all mood- and mind-altering substances and am
-                willing to take a
-                drug test at any time
-            </p>
-          </div>
+    <div class="card-body mb-2">
+        <h2 class="card-title text-center ">RECOVERY AGREEMENT/PLAN</h2>
+        <div class="col-12 custom-center">
+            <h4 class="font-header text-center" style="font-size: 19px;">
+                By initialing each requirement, you agree to abide and follow the rules and guidelines setforth in the
+                <br> agreement to reside in the Time For Change Recovery House 4 Phase Program.
+            </h4>
+            <hr style="width:100%;">
         </div>
 
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept3"></mat-checkbox>
-              I will abide by my curfew. 
-            </p>
-          </div>
-        </div>
+        <form class="form" [formGroup]="form" (ngSubmit)="saveData(form.value)">
+            <div class="row">
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="stepMeeting"></mat-checkbox>
+                            will go to 12 step meetings. I will get a sponsor. I will get a home group. I will work all 12 steps. I will get phone numbers from other recovering persons in recovery and build a support
+                        </p>
+                    </div>
+                </div>
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="remainAbstinent"></mat-checkbox>
+                            I will remain abstinent from all mood- and mind-altering substances and am willing to take a drug test at any time
+                        </p>
+                    </div>
+                </div>
 
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept4"></mat-checkbox>
-              I will get a Job that is conducive to recovery 
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept5"></mat-checkbox>
-              I will not contact any old people who are negative towards my recovery or are
-                using
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept6"></mat-checkbox>
-              I will not contact any old people who are negative towards my recovery or are
-                using
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept7"></mat-checkbox>
-              I will complete an aftercare program and all that they require from me, if
-                applicable
-            </p>
-          </div>
-        </div>
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="abideBy"></mat-checkbox>
+                            I will abide by my curfew.
+                        </p>
+                    </div>
+                </div>
 
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept8"></mat-checkbox>
-              I will participate in any alumni and/or recovery supportive events when
-                possible.
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept9"></mat-checkbox>
-              If I am struggling, I will reach out to my support group and share in a
-                meeting.
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept10"></mat-checkbox>
-              I will commit to a minimum of 120 days at Time For Change Recovery House.
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept11"></mat-checkbox>
-              I will not move out of Time For Change Recovery House without a recovery
-                supportive plan that I
-                have discussed with my support group
-            </p>
-          </div>
-        </div>
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="jobThat"></mat-checkbox>
+                            I will get a Job that is conducive to recovery
+                        </p>
+                    </div>
+                </div>
 
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept12"></mat-checkbox>
-              I will attend all necessary outside appointments that are conducive to my
-                recovery and assist me with
-                becoming a healthy productive member of society.
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-10 mx-auto">
-          <div class="row align-items-center">
-            <p style="font-size: 19px;">
-              <mat-checkbox formControlName="acept13"></mat-checkbox>
-              If applicable I will take my medication as prescribed and assist further care
-                from the appropriate.
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-12 card-footer "> <!--BOTON-->
-          <button mat-raised-button type="submit" class="btn btn-fill btn-rose" style="background-color: #02416B"
-            [disabled]="form.invalid">Send Form</button>
-        </div>
-      </div>
-    </form>
-  </div>
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="negativeTowards"></mat-checkbox>
+                            I will not contact any old people who are negative towards my recovery or are using
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="aftercareProgam"></mat-checkbox>
+                            I will complete an aftercare program and all that they require from me, if applicable
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="recoverySupportive"></mat-checkbox>
+                            I will participate in any alumni and/or recovery supportive events when possible.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="supportGroup"></mat-checkbox>
+                            If I am struggling, I will reach out to my support group and share in a meeting.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="changeRecovery"></mat-checkbox>
+                            I will commit to a minimum of 120 days at Time For Change Recovery House.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="recoveryHouse"></mat-checkbox>
+                            I will not move out of Time For Change Recovery House without a recovery supportive plan that I have discussed with my support group
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="appointmentsThat"></mat-checkbox>
+                            I will attend all necessary outside appointments that are conducive to my recovery and assist me with becoming a healthy productive member of society.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-auto">
+                    <div class="row align-items-center">
+                        <p style="font-size: 19px;">
+                            <mat-checkbox formControlName="medication"></mat-checkbox>
+                            If applicable I will take my medication as prescribed and assist further care from the appropriate.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 card-footer ">
+                    <!--BOTON-->
+                    <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid" *ngIf="disabled">Send Form</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>

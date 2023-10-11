@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignaturePad } from 'angular2-signaturepad';
 import { Menssage } from 'src/app/models/router';
+import { AlertService } from 'src/app/service/alert.service';
+import { AuthService } from 'src/app/service/auth.service';
+import { LocalstoreService } from 'src/app/service/localstore.service';
 
 @Component({
   selector: 'app-formulario10',
@@ -8,13 +12,29 @@ import { Menssage } from 'src/app/models/router';
   styleUrls: ['./formulario10.component.css']
 })
 export class Formulario10Component implements OnInit {
+  @ViewChild(SignaturePad) signaturePad!: SignaturePad;
   public form: FormGroup;
   public selectedOption: any;
   public createForm: any;
+  public signatureOpt: Object = {
+    'minWidth': 5,
+    'canvasWidth': '100%',
+    'canvasHeight': 200
 
+  }
+  public menuItemsStore: any = [];
+  public usersData: any;
+  public usersDataForm: any = [];
+  public customerDetail: any = [];
+  public disabled = true
+  @Output() questionResult9: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
-  ) { }
+    private localStore: LocalstoreService,
+    private _https:AuthService,
+    private alert: AlertService) { 
+      this.usersData = this.localStore.getSuccessLogin();
+      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)}
 
   ngOnInit(): void {
     this.initial()
@@ -22,23 +42,101 @@ export class Formulario10Component implements OnInit {
   initial(){
     this.form = this.myFormBuilder.group({
       residentName: [Menssage.empty, Validators.compose([Validators.required])],
-      authorize: [Menssage.empty, Validators.compose([Validators.required])],
-      date: [Menssage.empty, Validators.compose([Validators.required])],
-      information: [Menssage.empty, Validators.compose([Validators.required])],
-      Holding: [Menssage.empty, Validators.compose([Validators.required])],
-      Address: [Menssage.empty, Validators.compose([Validators.required])],
-      acept1: [Menssage.empty, Validators.compose([Validators.required])],
-      acept2: [Menssage.empty, Validators.compose([Validators.required])],
-      acept3: [Menssage.empty, Validators.compose([Validators.required])],
-      acept4: [Menssage.empty, Validators.compose([Validators.required])],
-      acept5: [Menssage.empty, Validators.compose([Validators.required])],
-      acept6: [Menssage.empty, Validators.compose([Validators.required])],
+      chooseDate: [Menssage.empty, Validators.compose([Validators.required])],
+      herebyAuthorize: [Menssage.empty, Validators.compose([Validators.required])],
+      discloseObtain: [Menssage.empty, Validators.compose([Validators.required])],
+      namePersonAgency: [Menssage.empty, Validators.compose([Validators.required])],
+      address: [Menssage.empty, Validators.compose([Validators.required])],
+      clientName: [Menssage.empty, Validators.compose([Validators.required])],
+      clientSignature: [Menssage.empty, Validators.compose([Validators.required])],
+      dateTodaysClient: [Menssage.empty, Validators.compose([Validators.required])],
+      directorName: [Menssage.empty, Validators.compose([Validators.required])],
+      directorSignature: [Menssage.empty, Validators.compose([Validators.required])],
+      dateTodaysDirector: [Menssage.empty, Validators.compose([Validators.required])],
+      usersClientId: [this.usersData.user.id, Validators.compose([Validators.required])],
       
     })
+    this.getAuthorizationReleaseInformation(this.usersData.user.id)
   }
   saveData(item: any){
     console.log(this.form);
-    
+    if (this.menuItemsStore.length == 0) {
+      this.createAuthorizationReleaseInformation(item)
+    }
+  }
+  signatureClients(item: string) {
+      console.log(item);
+      this.form.controls['directorSignature'].setValue(item)
+  }
+  signatureDirector(item: string) {
+      console.log(item);
+      this.form.controls['clientSignature'].setValue(item)
+  }
+
+  disableAuthorizationReleaseInformation(item: any){
+    this.form.controls['residentName'].disable()
+    this.form.controls['chooseDate'].disable()
+    this.form.controls['herebyAuthorize'].disable()
+    this.form.controls['discloseObtain'].disable()
+    this.form.controls['namePersonAgency'].disable()
+    this.form.controls['address'].disable()
+    this.form.controls['clientName'].disable()
+    this.form.controls['clientSignature'].disable()
+    this.form.controls['dateTodaysClient'].disable()
+    this.form.controls['directorName'].disable()
+    this.form.controls['directorSignature'].disable()
+    this.form.controls['dateTodaysDirector'].disable()
+
+    this.form.controls['residentName'].setValue(item.residentName)
+    this.form.controls['chooseDate'].setValue(item.chooseDate)
+    this.form.controls['herebyAuthorize'].setValue(item.herebyAuthorize)
+    this.form.controls['discloseObtain'].setValue(item.discloseObtain)
+    this.form.controls['namePersonAgency'].setValue(item.namePersonAgency)
+    this.form.controls['address'].setValue(item.clientName)
+    this.form.controls['clientName'].setValue(item.clientName)
+    this.form.controls['clientSignature'].setValue(item.clientSignature)
+    this.form.controls['dateTodaysClient'].setValue(item.dateTodaysClient)
+    this.form.controls['directorName'].setValue(item.directorName)
+    this.form.controls['directorSignature'].setValue(item.directorSignature)
+    this.form.controls['dateTodaysDirector'].setValue(item.dateTodaysDirector)
+    this.disabled = false
+  }
+
+  createAuthorizationReleaseInformation(item: any){
+    this.alert.loading();
+    this._https.createAuthorizationReleaseInformation(item).then((resulta: any)=>{
+      this.getAuthorizationReleaseInformation(this.usersData.user.id)
+      this.alert.messagefin();
+    }).catch((err: any)=>{
+      console.log(err)
+      this.alert.error(Menssage.error, Menssage.server);
+    });
+  }
+
+  getAuthorizationReleaseInformation(item: number){
+    this.alert.loading();
+    this._https.getAuthorizationReleaseInformation(item).then((resulta: any)=>{
+      this.menuItemsStore = resulta.data
+      if (this.menuItemsStore.length != 0) {
+        this.disableAuthorizationReleaseInformation(resulta.data)
+        this.questionResult9.emit(true)
+      }
+      this.alert.messagefin();
+    }).catch((err: any)=>{
+      console.log(err)
+      this.alert.error(Menssage.error, Menssage.server);
+    });
+  }
+
+  getTypesOfForms(item: number){
+    this.alert.loading();
+    this._https.getTypesOfForms(item).then((resulta: any)=>{
+      this.usersDataForm = resulta.data
+      this.alert.messagefin();
+    }).catch((err: any)=>{
+      console.log(err)
+      this.alert.error(Menssage.error, Menssage.server);
+    });
   }
 
 }

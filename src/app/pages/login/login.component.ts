@@ -37,17 +37,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.localStore.setItem("reload", "reload")
           window.location.reload()
         }
-        this.activatedRoute.paramMap.subscribe((parametros: ParamMap) => {
-            let token = parametros.get("token");
-            console.log(token)
-            if (token != null) {
-              console.log(token)
-              this.getCustomerDetail(token)
-            } else {
-              let token = "ec37bfee30f8d0717b194ce47d8d1cd4";
-              this.getCustomerDetail(token)
-            }
-        })
+        let token = Menssage.token;
+        this.getCustomerDetail(token)
     }
 
     ngOnInit() {
@@ -75,7 +66,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             Validators.pattern(Menssage.valiEmail),
             Validators.minLength(5)
           ])],
-          password: [Menssage.empty, Validators.compose([
+          passwordClient: [Menssage.empty, Validators.compose([
             Validators.required,
             Validators.minLength(6)
           ])],
@@ -103,9 +94,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.alert.loading();
             this._https.getCustomerDetail(item).then((resulta: any)=>{
                 console.log(resulta); 
-                  this.customerDetail = resulta
+                  this.customerDetail = resulta.data
                   this.localStore.removeEnd("reload")
-                  this.localStore.setItem(resulta, Menssage.customerDetail)
+                  this.localStore.setItem(resulta.data, Menssage.customerDetail)
                   this.alert.messagefin();
             }).catch((err: any)=>{
               console.log(err)
@@ -153,5 +144,9 @@ export class LoginComponent implements OnInit, OnDestroy {
           valid = false
         }
         return valid
+    }
+
+    login(){
+      this.router.navigate([RoutersLink.register]);
     }
 }

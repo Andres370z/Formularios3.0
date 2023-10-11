@@ -1,10 +1,20 @@
-mat-tab-group{
+mat-tab-group {
     width: 100%;
 }
-  
-  
-  
-  
-  
-  
-  
+
+.mat-form-field-infix {
+    display: flex !important;
+}
+
+mat-form-field {
+    margin-right: 12px;
+    display: flex !important;
+}
+
+.mat-form-field-infix {
+    display: flex !important;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+}

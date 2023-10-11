@@ -43,10 +43,10 @@
   </div> -->
     <div *ngIf="isMobileMenu()">
     </div>
-    <ul class="nav" *ngIf="menuItems.length != 0">
+    <ul class="nav">
         <li class="nav-item">
             <!-- Single link -->
-            <a (click)="navigate('home/content')" class="nav-link" style="--dropdown-color: #fff;">
+            <a class="nav-link" style="--dropdown-color: #fff;">
                 <i class="material-icons" style="--dropdown-color: #fff;"><mat-icon>dashboard</mat-icon></i>
                 <p>My Apps</p>
             </a>

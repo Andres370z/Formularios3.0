@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api: 'https://api.scanapp.com.co/api/auth/'
+  api: 'https://localhost:3010/api/auth/v1/'
 };

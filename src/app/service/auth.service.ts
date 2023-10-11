@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RoutersLink } from '../models/router';
 import { AlertService } from './alert.service';
 import { HttpsService } from './https.service';
+import { LocalstoreService } from './localstore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthService {
   constructor(
     private registeresquest: HttpsService,
     private route: Router, 
+    private localStore: LocalstoreService,
     private alert: AlertService
   ) { }
 
@@ -52,7 +54,10 @@ export class AuthService {
   getStatus(item: string){
     return  this.registeresquest.GET(RoutersLink.status+item)
   }
-
+  logout(){
+    this.localStore.clear();
+    this.route.navigate([RoutersLink.login]);
+  } 
   getUsers(){
     return  this.registeresquest.GET("user")
   }
@@ -176,4 +181,95 @@ export class AuthService {
     formData.append("id", inform.id);
     return  this.registeresquest.POST(RoutersLink.imgUpdate, formData)
   }
+
+  createResidentApplication(inform:any){
+    return  this.registeresquest.POST(RoutersLink.residentApplication, inform)
+  }
+
+  getResidentApplication(item: number){
+    return  this.registeresquest.GET(RoutersLink.residentApplication+'/'+item)
+  }
+
+  createEmergencyContact(inform:any){
+    return  this.registeresquest.POST(RoutersLink.emergencyContact, inform)
+  }
+
+  getEmergencyContact(item: number){
+    return  this.registeresquest.GET(RoutersLink.emergencyContact+'/'+item)
+  }
+
+  createEmployers(inform:any){
+    return  this.registeresquest.POST(RoutersLink.employers, inform)
+  }
+
+  getEmployers(item: number){
+    return  this.registeresquest.GET(RoutersLink.employers+'/'+item)
+  }
+
+  createStatus(inform:any){
+    return  this.registeresquest.POST(RoutersLink.statu, inform)
+  }
+
+  getStatu(item: number){
+    return  this.registeresquest.GET(RoutersLink.statu+'/'+item)
+  }
+  
+  createMedications(inform:any){
+    return  this.registeresquest.POST(RoutersLink.medications, inform)
+  }
+
+  getMedications(item: number){
+    return  this.registeresquest.GET(RoutersLink.medications+'/'+item)
+  }
+
+  createTreatment(inform:any){
+    return  this.registeresquest.POST(RoutersLink.treatment, inform)
+  }
+
+  getTreatment(item: number){
+    return  this.registeresquest.GET(RoutersLink.treatment+'/'+item)
+  }
+  createUsersClients(inform:any){
+    return  this.registeresquest.POST(RoutersLink.registerUsersClients, inform)
+  }
+  createRecoveryAgreementPlan(inform:any){
+    return  this.registeresquest.POST(RoutersLink.recoveryAgreementPlan, inform)
+  }
+  getRecoveryAgreementPlan(item: number){
+    return  this.registeresquest.GET(RoutersLink.recoveryAgreementPlan+'/'+item)
+  }
+  getTypesOfForms(item: number){
+    return  this.registeresquest.GET(RoutersLink.typesOfForms+'/'+item)
+  }
+  createGeneralForms(inform:any){
+    return  this.registeresquest.POST(RoutersLink.generalForms, inform)
+  }
+  getGeneralForms(item: any){
+    return  this.registeresquest.POST(RoutersLink.generalFormsList, item)
+  }
+  createAuthorizationReleaseInformation(inform:any){
+    return  this.registeresquest.POST(RoutersLink.authorizationReleaseInformation, inform)
+  }
+  getAuthorizationReleaseInformation(item: number){
+    return  this.registeresquest.GET(RoutersLink.authorizationReleaseInformation+'/'+item)
+  }
+  createPhaseUpProgressTracking(inform:any){
+    return  this.registeresquest.POST(RoutersLink.phaseUpProgressTracking, inform)
+  }
+  getPhaseUpProgressTracking(item: number){
+    return  this.registeresquest.GET(RoutersLink.phaseUpProgressTracking+'/'+item)
+  }
+  createPhaseUpProgressTrackingTwo(inform:any){
+    return  this.registeresquest.POST(RoutersLink.phaseUpProgressTrackingTwo, inform)
+  }
+  getPhaseUpProgressTrackingTwo(item: number){
+    return  this.registeresquest.GET(RoutersLink.phaseUpProgressTrackingTwo+'/'+item)
+  }
+  createPhaseUpProgressTrackingThree(inform:any){
+    return  this.registeresquest.POST(RoutersLink.phaseUpProgressTrackingThree, inform)
+  }
+  getPhaseUpProgressTrackingThree(item: number){
+    return  this.registeresquest.GET(RoutersLink.phaseUpProgressTrackingThree+'/'+item)
+  }
+  
 }

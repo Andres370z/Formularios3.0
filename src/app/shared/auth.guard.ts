@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
       const token = this.localStore.getSuccessLogin();
       console.log(token)
       if(token === null){
-        this.router.navigate([RoutersLink.login+"ec37bfee30f8d0717b194ce47d8d1cd4"]);
+        this.router.navigate([RoutersLink.login+token.data.apiToken]);
         return false;
       }
       return true;

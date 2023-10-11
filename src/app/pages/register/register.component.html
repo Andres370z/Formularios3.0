@@ -1,139 +1,194 @@
-
 <div class="wrapper wrapper-full-page">
-  <div class="page-header register-page header-filter" filter-color="black" style="background-image: url('./assets/img/register.jpg'); background-size: cover; background-position: top center;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 ml-auto mr-auto">
-          <div class="card card-signup">
-            <h2 class="card-title text-center">Register</h2>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-5 ml-auto">
-                  <div class="info info-horizontal">
-                    <div class="icon icon-rose">
-                      <i class="material-icons">timeline</i>
-                    </div>
-                    <div class="description">
-                      <h4 class="info-title">Marketing</h4>
-                      <p class="description">
-                        We've created the marketing campaign of the website. It was a very interesting collaboration.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="info info-horizontal">
-                    <div class="icon icon-primary">
-                      <i class="material-icons">code</i>
-                    </div>
-                    <div class="description">
-                      <h4 class="info-title">Fully Coded in HTML5</h4>
-                      <p class="description">
-                        We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="info info-horizontal">
-                    <div class="icon icon-info">
-                      <i class="material-icons">group</i>
-                    </div>
-                    <div class="description">
-                      <h4 class="info-title">Built Audience</h4>
-                      <p class="description">
-                        There is also a Fully Customizable CMS Admin Dashboard for this product.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-5 mr-auto">
-                  <div class="social text-center">
-                    <button mat-raised-button class="btn btn-just-icon btn-round btn-twitter">
+    <div class="page-header register-page header-filter" filter-color="black" style="background-image: url('./assets/img/register.jpg'); background-size: cover; background-position: top center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ml-auto mr-auto">
+                    <div class="card card-signup register">
+                        <h2 class="card-title text-center">Register Time for Change</h2>
+                        <div class="card-body">
+                            <div class="row ajust">
+                                <div class="col-md-4 ml-auto description">
+                                    <div class="info info-horizontal description">
+                                        <div class="description">
+                                            <img class="img-login" src="./../../../assets/img/1 (1).png" alt="softsaenz">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-8 mr-auto">
+                                    <!-- <div class="social text-center">
+                                        <button mat-raised-button class="btn btn-just-icon btn-round btn-twitter">
                       <i class="fa fa-twitter"></i>
                     </button>
-                    <button mat-raised-button class="btn btn-just-icon btn-round btn-dribbble">
+                                        <button mat-raised-button class="btn btn-just-icon btn-round btn-dribbble">
                       <i class="fa fa-dribbble"></i>
                     </button>
-                    <button mat-raised-button class="btn btn-just-icon btn-round btn-facebook">
+                                        <button mat-raised-button class="btn btn-just-icon btn-round btn-facebook">
                       <i class="fa fa-facebook"> </i>
                     </button>
-                    <h4 class="mt-3"> or be classical </h4>
-                  </div>
-                  <form class="form" method="" action="">
-                    <div class="form-group has-default">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons">face</i>
-                          </span>
+                                        <h4 class="mt-3"> or be classical </h4>
+                                    </div> -->
+
+                                    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                                        <div class="row ajust">
+                                            <div class="col-md-6">
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                      <i class="material-icons">face</i>
+                                                    </span>
+                                                        </div>
+                                                        <input type="text" formControlName="name" class="form-control" id="exampleInputname5" placeholder="Name">
+                                                        <span class="p-error" *ngIf="!form.controls['name'].valid && form.controls['name']?.touched">
+                                                            {{textAlert.name}}
+                                                          </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                          <i class="material-icons">assignment_ind</i>
+                                                      </span>
+                                                        </div>
+                                                        <input type="text" formControlName="surName" class="form-control" id="exampleInputsurName5" placeholder="surName">
+                                                        <span class="p-error" *ngIf="!form.controls['surName'].valid && form.controls['surName']?.touched">
+                                                            {{textAlert.surName}}
+                                                          </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                        <i class="material-icons">art_track</i>
+                                                      </span>
+                                                        </div>
+                                                        <select name="select" class="form-control" formControlName="documentType">
+                                                          <option value="">Select an option</option>
+                                                          <option value="ID">ID</option>
+                                                          <option value="PP" selected>Pass Port</option>
+                                                          <option value="value3">Value 3</option>
+                                                        </select>
+                                                        <span class="p-error" *ngIf="!form.controls['documentType'].valid && form.controls['documentType']?.touched">
+                                                            {{textAlert.documentType}}
+                                                          </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                        <i class="material-icons">subtitles</i>
+                                                    </span>
+                                                        </div>
+                                                        <input type="text" formControlName="documentNumber" class="form-control" id="exampleInputdocumentNumber5" placeholder="Document Number">
+                                                        <span class="p-error" *ngIf="!form.controls['documentNumber'].valid && form.controls['documentNumber']?.touched">
+                                                          {{textAlert.documentNumber}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                      <i class="material-icons">person</i>
+                                                  </span>
+                                                        </div>
+                                                        <input type="text" formControlName="sex" class="form-control" id="exampleInputsex5" placeholder="Sex">
+                                                        <span class="p-error" *ngIf="!form.controls['sex'].valid && form.controls['sex']?.touched">
+                                                        {{textAlert.sex}}
+                                                      </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                      <i class="material-icons">event</i>
+                                                    </span>
+                                                        </div>
+                                                        <input type="date" formControlName="birthDate" class="form-control" id="exampleInputbirthDate5" placeholder="Birth Date">
+                                                        <span class="p-error" *ngIf="!form.controls['birthDate'].valid && form.controls['birthDate']?.touched">
+                                                            {{textAlert.birthDate}}
+                                                          </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                      <i class="material-icons">phonelink_ring</i>
+                                                    </span>
+                                                        </div>
+                                                        <input type="text" formControlName="telephone" class="form-control" id="exampleInputtelephone5" placeholder="Telephone">
+                                                        <span class="p-error" *ngIf="!form.controls['telephone'].valid && form.controls['telephone']?.touched">
+                                                          {{textAlert.telephone}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                          <i class="material-icons">mail</i>
+                                                      </span>
+                                                        </div>
+                                                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail5" placeholder="Email">
+                                                        <span class="p-error" *ngIf="!form.controls['email'].valid && form.controls['email']?.touched">
+                                                            {{textAlert.email}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                      </span>
+                                                        </div>
+                                                        <input type="password" formControlName="passwordClient" class="form-control for mb-3" id="exampleInputEmail6" placeholder="Contraseña">
+                                                        <span class="p-error" *ngIf="!form.controls['passwordClient'].valid && form.controls['passwordClient']?.touched">
+                                                          {{textAlert.passwordClient}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group has-default">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                      <i class="material-icons">lock_outline</i>
+                                                    </span>
+                                                        </div>
+                                                        <input type="password" formControlName="passwordClientVerify" class="form-control for mb-3" id="exampleInputEmail6" placeholder="Verify Password" onchange="verifyPassword()">
+                                                        <span class="p-error" *ngIf="!form.controls['passwordClientVerify'].valid && form.controls['passwordClientVerify']?.touched">
+                                                        {{textAlert.passwordClientVerify}}
+                                                      </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <mat-checkbox class="form-check">
+                                            I agree to the
+                                            <a href="#something">terms and conditions</a>.
+                                        </mat-checkbox> -->
+                                        <div class="text-center">
+                                            <button href="#pablo" class="btn btn-primary btn-round mt-4">Register</button><br>
+                                            <a (click)="login()">
+                                                <h4>you are already registered</h4>
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="First Name...">
-                      </div>
                     </div>
-                    <div class="form-group has-default">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons">mail</i>
-                          </span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Email...">
-                      </div>
-                    </div>
-                    <div class="form-group has-default">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons">lock_outline</i>
-                          </span>
-                        </div>
-                        <input type="password" placeholder="Password..." class="form-control">
-                      </div>
-                    </div>
-                    <mat-checkbox class="form-check">
-                      I agree to the
-                      <a href="#something">terms and conditions</a>.
-                    </mat-checkbox>
-                    <div class="text-center">
-                      <a href="#pablo" class="btn btn-primary btn-round mt-4">Get Started</a>
-                    </div>
-                  </form>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <footer class="footer ">
-      <div class="container">
-        <nav class="pull-left">
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
-              </a>
-            </li>
-            <li>
-              <a href="https://creative-tim.com/about-us">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="https://www.creative-tim.com/license">
-                Licenses
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright pull-right">
-          &copy;
-        {{test | date: 'yyyy'}}, made with <i class="material-icons">favorite</i> by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-        </div>
-      </div>
-    </footer>
-  </div>
 </div>
