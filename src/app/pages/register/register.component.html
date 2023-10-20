@@ -52,7 +52,7 @@
                                                           <i class="material-icons">assignment_ind</i>
                                                       </span>
                                                         </div>
-                                                        <input type="text" formControlName="surName" class="form-control" id="exampleInputsurName5" placeholder="surName">
+                                                        <input type="text" formControlName="surName" class="form-control" id="exampleInputsurName5" placeholder="Last Name">
                                                         <span class="p-error" *ngIf="!form.controls['surName'].valid && form.controls['surName']?.touched">
                                                             {{textAlert.surName}}
                                                           </span>
@@ -69,7 +69,6 @@
                                                           <option value="">Select an option</option>
                                                           <option value="ID">ID</option>
                                                           <option value="PP" selected>Pass Port</option>
-                                                          <option value="value3">Value 3</option>
                                                         </select>
                                                         <span class="p-error" *ngIf="!form.controls['documentType'].valid && form.controls['documentType']?.touched">
                                                             {{textAlert.documentType}}
@@ -96,7 +95,11 @@
                                                       <i class="material-icons">person</i>
                                                   </span>
                                                         </div>
-                                                        <input type="text" formControlName="sex" class="form-control" id="exampleInputsex5" placeholder="Sex">
+                                                        <select name="select" class="form-control" formControlName="sex">
+                                                            <option value="">Select an option</option>
+                                                            <option value="Male">Male</option>
+                                                            <option value="Female" selected>Female</option>
+                                                          </select>
                                                         <span class="p-error" *ngIf="!form.controls['sex'].valid && form.controls['sex']?.touched">
                                                         {{textAlert.sex}}
                                                       </span>
@@ -111,7 +114,11 @@
                                                       <i class="material-icons">event</i>
                                                     </span>
                                                         </div>
-                                                        <input type="date" formControlName="birthDate" class="form-control" id="exampleInputbirthDate5" placeholder="Birth Date">
+                                                        <div class="gruop">
+                                                            <label for="birthDate" style="width: 100%;">Brithday date</label>
+                                                            <input type="date" formControlName="birthDate" class="form-control" id="exampleInputbirthDate5" placeholder="Brithday date">
+                                                        </div>
+
                                                         <span class="p-error" *ngIf="!form.controls['birthDate'].valid && form.controls['birthDate']?.touched">
                                                             {{textAlert.birthDate}}
                                                           </span>
@@ -177,7 +184,7 @@
                                             <a href="#something">terms and conditions</a>.
                                         </mat-checkbox> -->
                                         <div class="text-center">
-                                            <button href="#pablo" class="btn btn-primary btn-round mt-4">Register</button><br>
+                                            <button href="#pablo" class="btn btn-primary btn-round mt-4 register">Register</button><br>
                                             <a (click)="login()">
                                                 <h4>you are already registered</h4>
                                             </a>

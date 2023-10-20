@@ -27,19 +27,22 @@
                     <!--Nombre Abreviado-->
                     <app-signature-clients (signatureClients)="signatureClients($event)"></app-signature-clients>
                 </div>
-                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length == 0">
-                    <!--Nombre Abreviado-->
-                    <app-signature-director (signatureDirector)="signatureDirector($event)"></app-signature-director>
 
-                </div>
                 <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0">
                     <!--Nombre Abreviado-->
-                    <img [src]="menuItemsStore.clientSignature" alt="softsaenz" class="ajust-end">
+                    <img *ngIf="menuItemsStore.clientSignature" [src]="menuItemsStore.clientSignature" alt="softsaenz" class="ajust-end">
                     <p>Client Signature</p>
                 </div>
-                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0">
+                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0 && !menuItemsStore.directorSignature">
                     <!--Nombre Abreviado-->
-                    <img [src]="menuItemsStore.directorSignature" alt="softsaenz" class="ajust-end">
+                    <app-signature-director *ngIf="usersData.user.rolAppId == 1" (signatureDirector)="signatureDirector($event)"></app-signature-director>
+                    <p *ngIf="usersData.user.rolAppId == 2">Only for administrator</p>
+
+                </div>
+                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0 && menuItemsStore.directorSignature">
+                    <!--Nombre Abreviado-->
+                    <img *ngIf="menuItemsStore.directorSignature" [src]="menuItemsStore.directorSignature" alt="softsaenz" class="ajust-end">
+                    <p *ngIf="usersData.user.rolAppId == 2">Only for administrator</p>
                     <p>Director Signature</p>
                 </div>
                 <div class="col-6">
@@ -62,7 +65,6 @@
                         <mat-datepicker #picker2></mat-datepicker>
                     </mat-form-field>
                 </div>
-
                 <div class="col-12 card-footer ">
                     <!--BOTON-->
                     <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid" *ngIf="disabled">Send Form</button>

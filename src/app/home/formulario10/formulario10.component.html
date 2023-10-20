@@ -98,7 +98,8 @@
                 </div>
                 <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length == 0">
                     <!--Nombre Abreviado-->
-                    <app-signature-director (signatureDirector)="signatureDirector($event)"></app-signature-director>
+                    <app-signature-director *ngIf="usersData.user.rolAppId == 1 && !validAdmin" (signatureDirector)="signatureDirector($event)"></app-signature-director>
+                    <p *ngIf="usersData.user.rolAppId == 2">Only for administrator</p>
 
                 </div>
                 <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0">
@@ -106,9 +107,10 @@
                     <img [src]="menuItemsStore.clientSignature" alt="softsaenz" class="ajust-end">
                     <p>Client Signature</p>
                 </div>
-                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0">
+                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0 && validAdmin">
                     <!--Nombre Abreviado-->
-                    <img [src]="menuItemsStore.directorSignature" alt="softsaenz" class="ajust-end">
+                    <img *ngIf="menuItemsStore.directorSignature" [src]="menuItemsStore.directorSignature" alt="softsaenz" class="ajust-end">
+                    <p *ngIf="usersData.user.rolAppId == 2">Only for administrator</p>
                     <p>Director Signature</p>
                 </div>
                 <div class="col-6">

@@ -19,6 +19,10 @@ export class Formulario3Component implements OnInit {
   public usersDataForm: any = [];
   public customerDetail: any = [];
   public disabled = true
+  public selectUsers:any;
+  public id: number;
+  public idUsers:any;
+  public validAdmin: boolean = true
   @Output() questionResult2: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
@@ -26,12 +30,16 @@ export class Formulario3Component implements OnInit {
     private _https:AuthService,
     private alert: AlertService) { 
       this.usersData = this.localStore.getSuccessLogin();
-      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)}
+      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)
+      this.selectUsers = this.localStore.getItem(Menssage.selectUsers)
+      this.idUsers = this.selectUsers ? this.selectUsers : this.usersData.user
+      console.log(this.usersData)
+    }
 
   ngOnInit(): void {
     this.initial()
-    this.getTypesOfForms(1)
-    this.getGeneralForms(this.usersData.user.id, 1)
+    this.getTypesOfForms(1) 
+    this.getGeneralForms(this.idUsers.id, 1)
     
   }
   initial(){
@@ -39,49 +47,76 @@ export class Formulario3Component implements OnInit {
       clientName: [Menssage.empty, Validators.compose([Validators.required])],
       clientSignature: [Menssage.empty, Validators.compose([Validators.required])],
       dateTodaysClient: [Menssage.empty, Validators.compose([Validators.required])],
-      directorName: [Menssage.empty],
-      directorSignature: [Menssage.empty],
-      dateTodaysDirector: [Menssage.empty],
-      usersClientId: [this.usersData.user.id],
+      directorName: [{value: Menssage.empty, disabled: true}, Validators.compose([Validators.nullValidator])],
+      directorSignature: [{value: Menssage.empty, disabled: true}, Validators.compose([Validators.nullValidator])],
+      dateTodaysDirector: [{value: Menssage.empty, disabled: true}, Validators.compose([Validators.nullValidator])],
+      usersClientId: [this.idUsers.id],
+      clientsProyectsId:[this.usersData.user.clientsProyectsId],
       typesOfFormsId: [1],
+      
     })
+    if (this.selectUsers) {
+      this.form.controls['directorName'].enable()
+      this.form.controls['directorSignature'].enable()
+      this.form.controls['dateTodaysDirector'].enable()
+      this.validAdmin = false
+      console.log("entro")
+    }else{
+      this.form.controls['directorName'].setValue(null)
+      this.form.controls['directorSignature'].setValue(null)
+      this.form.controls['dateTodaysDirector'].setValue(null)
+    }
   }
   saveData(item: any){
     console.log(this.form);
     if (this.menuItemsStore.length == 0) {
       this.createGeneralForms(item)
+    }else{
+      if (this.usersData.user.rolAppId == 1) {
+        this.editGeneralForms(item)
+      }
     }
   }
   signatureClients(item: string) {
     console.log(item);
-    this.form.controls['directorSignature'].setValue(item)
+    this.form.controls['clientSignature'].setValue(item)
   }
   signatureDirector(item: string) {
       console.log(item);
-      this.form.controls['clientSignature'].setValue(item)
+      this.form.controls['directorSignature'].setValue(item)
   }
 
   disableGeneralForms(item: any){
+    this.id = item.id
     this.form.controls['clientName'].disable()
     this.form.controls['clientSignature'].disable()
     this.form.controls['dateTodaysClient'].disable()
-    this.form.controls['directorName'].disable()
-    this.form.controls['directorSignature'].disable()
-    this.form.controls['dateTodaysDirector'].disable()
-
+    if (this.selectUsers) {
+      this.form.controls['directorName'].enable()
+      this.form.controls['directorSignature'].enable()
+      this.form.controls['dateTodaysDirector'].enable()
+    }
+    if (item.directorName != null) {
+      this.form.controls['directorName'].setValue(item.directorName)
+      this.form.controls['directorSignature'].setValue(item.directorSignature)
+      this.form.controls['dateTodaysDirector'].setValue(item.dateTodaysDirector)
+      this.form.controls['directorName'].disable()
+      this.form.controls['directorSignature'].disable()
+      this.form.controls['dateTodaysDirector'].disable()
+      this.disabled = false
+      this.validAdmin = true
+    }
     this.form.controls['clientName'].setValue(item.clientName)
     this.form.controls['clientSignature'].setValue(item.clientSignature)
     this.form.controls['dateTodaysClient'].setValue(item.dateTodaysClient)
-    this.form.controls['directorName'].setValue(item.directorName)
-    this.form.controls['directorSignature'].setValue(item.directorSignature)
-    this.form.controls['dateTodaysDirector'].setValue(item.dateTodaysDirector)
-    this.disabled = false
+   
+    
   }
 
   createGeneralForms(item: any){
     this.alert.loading();
     this._https.createGeneralForms(item).then((resulta: any)=>{
-      this.getGeneralForms(this.usersData.user.id, 1)
+      this.getGeneralForms(this.idUsers.id, 1)
       this.alert.messagefin();
     }).catch((err: any)=>{
       console.log(err)
@@ -89,6 +124,16 @@ export class Formulario3Component implements OnInit {
     });
   }
 
+  editGeneralForms(item: any){
+    this.alert.loading();
+    this._https.editGeneralForms(this.id,item).then((resulta: any)=>{
+      this.getGeneralForms(this.idUsers.id, 1)
+      this.alert.messagefin();
+    }).catch((err: any)=>{
+      console.log(err)
+      this.alert.error(Menssage.error, Menssage.server);
+    });
+  }
   getGeneralForms(item: number, iten: number){
     const list = {
       usersClientId: item,

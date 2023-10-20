@@ -33,6 +33,8 @@ import { SignatureDirectorComponent } from 'src/app/components/signature-directo
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import { SignatureClientsComponent } from 'src/app/components/signature-clients/signature-clients.component';
+import { Formulario13Component } from '../formulario13/formulario13.component';
+import { Formulario14Component } from '../formulario14/formulario14.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { SignatureClientsComponent } from 'src/app/components/signature-clients/
     Formulario10Component,
     Formulario11Component,
     Formulario12Component,
+    Formulario13Component,
+    Formulario14Component,
     SignatureDirectorComponent,
     SignatureClientsComponent,
   ],

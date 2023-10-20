@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api: 'https://localhost:3010/api/auth/v1/'
+  api: 'https://apitimeforchange.softsaenz.com.co:3000/api/auth/v1/'
 };

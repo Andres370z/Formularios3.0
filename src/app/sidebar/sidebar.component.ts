@@ -67,9 +67,16 @@ export class SidebarComponent implements OnInit {
         }
         return bool;
     }
-    logout(){
-        this.localStore.clear();
-        this.router.navigate([RoutersLink.login]);
-        this.menuItemsStore = []
+    logout(item: number){
+        console.log(item)
+        if (item == 1) {
+            this.router.navigate([RoutersLink.listManager]);
+        } if (item  == 2) {
+            this.router.navigate([RoutersLink.content]);
+        } if (item  == 3) {
+            this.localStore.clear();
+            this.router.navigate([RoutersLink.login]);
+            this.menuItemsStore = []
+        }
     } 
 }

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SignaturePad } from 'angular2-signaturepad';
 import { Menssage } from 'src/app/models/router';
 import { AlertService } from 'src/app/service/alert.service';
 import { AuthService } from 'src/app/service/auth.service';
@@ -12,21 +11,18 @@ import { LocalstoreService } from 'src/app/service/localstore.service';
   styleUrls: ['./formulario4.component.css']
 })
 export class Formulario4Component implements OnInit {
-  @ViewChild(SignaturePad) signaturePad!: SignaturePad;
-  @ViewChild(SignaturePad) signaturePadOne!: SignaturePad;
   public form: FormGroup;
   public selectedOption: any;
   public createForm: any;
-  public signatureOpt: Object = { // passed through to szimek/signature_pad constructor
-    'minWidth': 1,
-    'canvasWidth': 350,
-    'canvasHeight': 200
-  };
   public menuItemsStore: any = [];
   public usersData: any;
   public usersDataForm: any = [];
   public customerDetail: any = [];
   public disabled = true
+  public selectUsers:any;
+  public id: number;
+  public idUsers:any;
+  public validAdmin: boolean = true
   @Output() questionResult3: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
@@ -34,12 +30,14 @@ export class Formulario4Component implements OnInit {
     private _https:AuthService,
     private alert: AlertService) { 
       this.usersData = this.localStore.getSuccessLogin();
-      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)}
+      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)
+      this.selectUsers = this.localStore.getItem(Menssage.selectUsers)
+      this.idUsers = this.selectUsers ? this.selectUsers : this.usersData.user}
 
   ngOnInit(): void {
     this.initial()
     this.getTypesOfForms(2)
-    this.getGeneralForms(this.usersData.user.id, 2)
+    this.getGeneralForms(this.idUsers.id, 2)
     
   }
   initial(){
@@ -47,50 +45,64 @@ export class Formulario4Component implements OnInit {
       clientName: [Menssage.empty, Validators.compose([Validators.required])],
       clientSignature: [Menssage.empty, Validators.compose([Validators.required])],
       dateTodaysClient: [Menssage.empty, Validators.compose([Validators.required])],
-      directorName: [Menssage.empty],
-      directorSignature: [Menssage.empty],
-      dateTodaysDirector: [Menssage.empty],
-      usersClientId: [this.usersData.user.id],
+      directorName: [{value: Menssage.empty, disabled: true}, Validators.compose([Validators.nullValidator])],
+      directorSignature: [{value: Menssage.empty, disabled: true}, Validators.compose([Validators.nullValidator])],
+      dateTodaysDirector: [{value: Menssage.empty, disabled: true}, Validators.compose([Validators.nullValidator])],
+      usersClientId: [this.idUsers.id],
+      clientsProyectsId:[this.usersData.user.clientsProyectsId],
       typesOfFormsId: [2],
     })
+    if (this.selectUsers) {
+      this.form.controls['directorName'].enable()
+      this.form.controls['directorSignature'].enable()
+      this.form.controls['dateTodaysDirector'].enable()
+      this.validAdmin = false
+    }
   }
   saveData(item: any){
     console.log(this.form);
     if (this.menuItemsStore.length == 0) {
       this.createGeneralForms(item)
+    }else{
+      if (this.usersData.user.rolAppId == 1) {
+        this.editGeneralForms(item)
+      }
     }
   }
-  drawComplete() {
-      console.log(this.signaturePad.toDataURL());
-      this.form.controls['directorSignature'].setValue(this.signaturePad.toDataURL())
+  signatureClients(item: string) {
+    console.log(item);
+    this.form.controls['clientSignature'].setValue(item)
   }
-  drawCompleteOne() {
-      console.log(this.signaturePadOne.toDataURL());
-      this.form.controls['clientSignature'].setValue(this.signaturePad.toDataURL())
-  }
-  drawStart(){
-
-  }
-
-  clear(){
-    this.signaturePad.clear();
+  signatureDirector(item: string) {
+      console.log(item);
+      this.form.controls['directorSignature'].setValue(item)
   }
 
   disableGeneralForms(item: any){
+    this.id = item.id
     this.form.controls['clientName'].disable()
     this.form.controls['clientSignature'].disable()
     this.form.controls['dateTodaysClient'].disable()
-    this.form.controls['directorName'].disable()
-    this.form.controls['directorSignature'].disable()
-    this.form.controls['dateTodaysDirector'].disable()
+    if (this.selectUsers) {
+      this.form.controls['directorName'].enable()
+      this.form.controls['directorSignature'].enable()
+      this.form.controls['dateTodaysDirector'].enable()
+    }
+    if (item.directorName != null) {
+      this.form.controls['directorName'].setValue(item.directorName)
+      this.form.controls['directorSignature'].setValue(item.directorSignature)
+      this.form.controls['dateTodaysDirector'].setValue(item.dateTodaysDirector)
+      this.form.controls['directorName'].disable()
+      this.form.controls['directorSignature'].disable()
+      this.form.controls['dateTodaysDirector'].disable()
+      this.validAdmin = true
+      this.disabled = false
+    }
 
     this.form.controls['clientName'].setValue(item.clientName)
     this.form.controls['clientSignature'].setValue(item.clientSignature)
     this.form.controls['dateTodaysClient'].setValue(item.dateTodaysClient)
-    this.form.controls['directorName'].setValue(item.directorName)
-    this.form.controls['directorSignature'].setValue(item.directorSignature)
-    this.form.controls['dateTodaysDirector'].setValue(item.dateTodaysDirector)
-    this.disabled = false
+    
   }
 
   createGeneralForms(item: any){
@@ -103,7 +115,16 @@ export class Formulario4Component implements OnInit {
       this.alert.error(Menssage.error, Menssage.server);
     });
   }
-
+  editGeneralForms(item: any){
+    this.alert.loading();
+    this._https.editGeneralForms(this.id,item).then((resulta: any)=>{
+      this.getGeneralForms(this.idUsers.id, 1)
+      this.alert.messagefin();
+    }).catch((err: any)=>{
+      console.log(err)
+      this.alert.error(Menssage.error, Menssage.server);
+    });
+  }
   getGeneralForms(item: number, iten: number){
     const list = {
       usersClientId: item,

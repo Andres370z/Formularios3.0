@@ -472,7 +472,7 @@
 
                 <div class="col-12 card-footer ">
                     <!--BOTON-->
-                    <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid">Send Form</button>
+                    <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid" *ngIf="disabled">Send Form</button>
                 </div>
             </div>
         </form>

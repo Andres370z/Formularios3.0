@@ -82,15 +82,30 @@
                                         <button mat-button matStepperNext *ngIf="question10">Next</button>
                                     </div>
                                 </mat-step>
-                                <mat-step *ngIf="question10">
+                                <mat-step *ngIf="usersData.user.rolAppId == 1 && question10">
                                     <app-formulario11 (questionResult10)="questionResult10($event)"></app-formulario11>
                                     <div>
                                         <button mat-button matStepperPrevious>Back</button>
                                         <button mat-button matStepperNext *ngIf="question11">Next</button>
                                     </div>
                                 </mat-step>
-                                <mat-step *ngIf="question11">
-                                    <app-formulario12></app-formulario12>
+                                <mat-step *ngIf="usersData.user.rolAppId == 1 && question11">
+                                    <app-formulario12 (questionResult11)="questionResult11($event)"></app-formulario12>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question12">Next</button>
+
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="usersData.user.rolAppId == 1 && question12">
+                                    <app-formulario13 (questionResult12)="questionResult12($event)"></app-formulario13>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext *ngIf="question13">Next</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step *ngIf="usersData.user.rolAppId == 1 && question13">
+                                    <app-formulario14></app-formulario14>
                                     <div>
                                         <button mat-button matStepperNext>Next</button>
                                         <button mat-button matStepperPrevious>Back</button>

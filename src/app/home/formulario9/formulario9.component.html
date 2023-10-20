@@ -27,22 +27,24 @@
                     <!--Nombre Abreviado-->
                     <app-signature-clients (signatureClients)="signatureClients($event)"></app-signature-clients>
                 </div>
-                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length == 0">
-                    <!--Nombre Abreviado-->
-                    <app-signature-director (signatureDirector)="signatureDirector($event)"></app-signature-director>
 
-                </div>
                 <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0">
                     <!--Nombre Abreviado-->
-                    <img [src]="menuItemsStore.clientSignature" alt="softsaenz" class="ajust-end">
+                    <img *ngIf="menuItemsStore.clientSignature" [src]="menuItemsStore.clientSignature" alt="softsaenz" class="ajust-end">
                     <p>Client Signature</p>
                 </div>
-                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0">
+                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0 && !menuItemsStore.directorSignature">
                     <!--Nombre Abreviado-->
-                    <img [src]="menuItemsStore.directorSignature" alt="softsaenz" class="ajust-end">
+                    <app-signature-director *ngIf="usersData.user.rolAppId == 1" (signatureDirector)="signatureDirector($event)"></app-signature-director>
+                    <p *ngIf="usersData.user.rolAppId == 2">Only for administrator</p>
+
+                </div>
+                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0 && menuItemsStore.directorSignature">
+                    <!--Nombre Abreviado-->
+                    <img *ngIf="menuItemsStore.directorSignature" [src]="menuItemsStore.directorSignature" alt="softsaenz" class="ajust-end">
+                    <p *ngIf="usersData.user.rolAppId == 2">Only for administrator</p>
                     <p>Director Signature</p>
                 </div>
-
                 <div class="col-6">
                     <!--Nombre Abreviado-->
                     <mat-form-field color="accent" floatLabel="never">

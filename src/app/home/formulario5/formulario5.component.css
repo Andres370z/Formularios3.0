@@ -2,8 +2,16 @@
     width: 100%;
 }
 
+.mat-form-field-infix.ng-tns-c39-59 {
+    display: flex;
+}
+
 hr {
     border-color: #02416B;
+}
+
+.ajut-signature p {
+    font-size: 10px;
 }
 
 .mat-option:hover {
@@ -20,8 +28,4 @@ hr {
 
 .card-header-rose img {
     width: 300px;
-}
-.mat-list-item{
-    margin-top: 4px;
-    margin-bottom: 4px;
 }

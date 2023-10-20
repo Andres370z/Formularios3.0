@@ -27,6 +27,8 @@ export class Formulario1Component implements OnInit {
   public usersData: any;
   public customerDetail: any = [];
   public disabled = true
+  public selectUsers:any;
+  public idUsers:any;
   @Output() questionResult: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
@@ -34,7 +36,11 @@ export class Formulario1Component implements OnInit {
     private _https:AuthService,
     private alert: AlertService) { 
       this.usersData = this.localStore.getSuccessLogin();
-      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)}
+      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)
+      this.selectUsers = this.localStore.getItem(Menssage.selectUsers)
+      this.idUsers = this.selectUsers ? this.selectUsers : this.usersData.user
+      console.log(this.idUsers)
+    }
 
   ngOnInit(): void {
     this.initial()
@@ -101,9 +107,10 @@ export class Formulario1Component implements OnInit {
       treatmentHowOften: [Menssage.empty, Validators.compose([Validators.nullValidator])],
       treatmentMostImportantToday: [Menssage.empty, Validators.compose([Validators.nullValidator])],
       treatmentHaveAnyGoals: [Menssage.empty, Validators.compose([Validators.nullValidator])],
-      usersClientId: [this.usersData.user.id],
+      usersClientId: [this.idUsers.id],
+      clientsProyectsId:[this.usersData.user.clientsProyectsId]
     })
-    this.getResidentApplication(this.usersData.user.id)
+    this.getResidentApplication(this.idUsers.id)
   }
   disableResidentApplication(item: any){
     this.form.controls['chooseDate'].disable()
@@ -129,8 +136,14 @@ export class Formulario1Component implements OnInit {
     this.form.controls['ifSo'].setValue(item.ifSo)
     this.form.controls['licensPlate'].setValue(item.licensPlate)
     this.form.controls['stateLicens'].setValue(item.stateLicens)
+    this.validButton();
   }
-
+  validButton(){
+    if (this.emergencyContact.length >= 2 && this.employers.length != 0
+      && this.status.length != 0 && this.medications.length != 0 && this.treatment.length != 0) {
+        this.disabled = Menssage.emptyBolean
+    }
+  }
   disableEmergencyContact(item: any){
     this.form.controls['emergencyContact'].disable()
     this.form.controls['relationship'].disable()
@@ -150,6 +163,7 @@ export class Formulario1Component implements OnInit {
       this.form.controls['homePhone2'].setValue(item[1].homePhone)
       this.form.controls['cellPhone2'].setValue(item[1].cellPhone)
     }
+    this.validButton();
   }
 
   disableEmployers(item: any){
@@ -161,6 +175,7 @@ export class Formulario1Component implements OnInit {
     this.form.controls['adress'].setValue(item.adress)
     this.form.controls['phoneEmploye'].setValue(item.phoneEmploye)
     this.form.controls['superName'].setValue(item.superName)
+    this.validButton();
   }
 
   disableMedications(item: any){
@@ -175,6 +190,7 @@ export class Formulario1Component implements OnInit {
     this.form.controls['medicationsList'].setValue(item.medicationsList)
     this.form.controls['mentalHealth'].setValue(item.mentalHealth)
     this.form.controls['ifSowhat'].setValue(item.ifSoWhat)
+    this.validButton();
   }
 
   disableTreatment(item: any){
@@ -205,6 +221,7 @@ export class Formulario1Component implements OnInit {
     this.form.controls['treatmentHowOften'].setValue(item.treatmentHowOften)
     this.form.controls['treatmentMostImportantToday'].setValue(item.treatmentMostImportantToday)
     this.form.controls['treatmentHaveAnyGoals'].setValue(item.treatmentHaveAnyGoals)
+    this.validButton();
 
   }
 
@@ -244,6 +261,7 @@ export class Formulario1Component implements OnInit {
     this.form.controls['statusEndDate'].setValue(item.statusEndDate)
     this.form.controls['statusOfficerName'].setValue(item.statusOfficerName)
     this.form.controls['statusPhone'].setValue(item.statusPhone)
+    this.validButton();
   }
 
   saveData(){
@@ -385,7 +403,8 @@ export class Formulario1Component implements OnInit {
       ifSo: this.form.controls['ifSo'].value,
       licensPlate: this.form.controls['licensPlate'].value,
       stateLicens: this.form.controls['stateLicens'].value,
-      usersClientId: this.usersData.user.id
+      usersClientId: this.usersData.user.id,
+      clientsProyectsId:this.usersData.user.clientsProyectsId
     }
     return residentApplication;
   }

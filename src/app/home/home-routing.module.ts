@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
   },
-  { path: 'assistantList', loadChildren: () => import('./assistant-list/assistant-list.module').then(m => m.AssistantListModule) },
+  { path: 'listManager', loadChildren: () => import('./assistant-list/assistant-list.module').then(m => m.AssistantListModule) },
   { path: 'content', loadChildren: () => import('./content/content.module').then(m => m.ContentModule) },
 ];
 

@@ -269,12 +269,12 @@
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
                 </div>
-                <div class="col-8 ajut-signature" *ngIf="menuItemsStore.length == 0">
+                <div class="col-8 ajut-signature" *ngIf="menuItemsStore.length == 1">
                     <app-signature-director (signatureDirector)="signatureDirector($event)"></app-signature-director>
                 </div>
-                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length != 0">
+                <div class="col-6 ajut-signature" *ngIf="menuItemsStore.length == 2">
                     <!--Nombre Abreviado-->
-                    <img [src]="menuItemsStore[0].directorSignature" alt="softsaenz" class="ajust-end">
+                    <img [src]="menuItemsStore[1].directorSignature" alt="softsaenz" class="ajust-end">
                     <p>Director Signature</p>
                 </div>
                 <div class="col-12 card-footer ">

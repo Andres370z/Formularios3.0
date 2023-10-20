@@ -21,6 +21,8 @@ export class Formulario2Component implements OnInit {
   public usersData: any;
   public disabled = true
   public customerDetail: any = [];
+  public selectUsers:any;
+  public idUsers:any;
   @Output() questionResult1: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
@@ -28,7 +30,10 @@ export class Formulario2Component implements OnInit {
     private _https:AuthService,
     private alert: AlertService) { 
       this.usersData = this.localStore.getSuccessLogin();
-      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)}
+      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)
+      this.selectUsers = this.localStore.getItem(Menssage.selectUsers)
+      this.idUsers = this.selectUsers ? this.selectUsers : this.usersData.user
+    }
 
   ngOnInit(): void {
     this.initial()
@@ -48,9 +53,10 @@ export class Formulario2Component implements OnInit {
       recoveryHouse: [Menssage.emptyBolean],
       appointmentsThat: [Menssage.emptyBolean],
       medication: [Menssage.emptyBolean],
-      usersClientId: [this.usersData.user.id],
+      usersClientId: [this.idUsers.id],
+      clientsProyectsId:[this.usersData.user.clientsProyectsId]
     })
-    this.getRecoveryAgreementPlan(this.usersData.user.id)
+    this.getRecoveryAgreementPlan(this.idUsers.id)
   }
 
   disableRecoveryAgreementPlan(item: any){

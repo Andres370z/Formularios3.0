@@ -27,6 +27,10 @@ export class Formulario10Component implements OnInit {
   public usersDataForm: any = [];
   public customerDetail: any = [];
   public disabled = true
+  public selectUsers:any;
+  public id: number;
+  public idUsers:any;
+  public validAdmin: boolean = true
   @Output() questionResult9: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
@@ -34,7 +38,9 @@ export class Formulario10Component implements OnInit {
     private _https:AuthService,
     private alert: AlertService) { 
       this.usersData = this.localStore.getSuccessLogin();
-      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)}
+      this.customerDetail = this.localStore.getItem(Menssage.customerDetail)
+      this.selectUsers = this.localStore.getItem(Menssage.selectUsers)
+      this.idUsers = this.selectUsers ? this.selectUsers : this.usersData.user}
 
   ngOnInit(): void {
     this.initial()
@@ -54,9 +60,16 @@ export class Formulario10Component implements OnInit {
       directorSignature: [Menssage.empty, Validators.compose([Validators.required])],
       dateTodaysDirector: [Menssage.empty, Validators.compose([Validators.required])],
       usersClientId: [this.usersData.user.id, Validators.compose([Validators.required])],
+      clientsProyectsId:[this.usersData.user.clientsProyectsId]
       
     })
-    this.getAuthorizationReleaseInformation(this.usersData.user.id)
+    this.getAuthorizationReleaseInformation(this.idUsers.id)
+    if (this.selectUsers) {
+      this.form.controls['directorName'].enable()
+      this.form.controls['directorSignature'].enable()
+      this.form.controls['dateTodaysDirector'].enable()
+      this.validAdmin = false
+    }
   }
   saveData(item: any){
     console.log(this.form);
@@ -83,9 +96,21 @@ export class Formulario10Component implements OnInit {
     this.form.controls['clientName'].disable()
     this.form.controls['clientSignature'].disable()
     this.form.controls['dateTodaysClient'].disable()
-    this.form.controls['directorName'].disable()
-    this.form.controls['directorSignature'].disable()
-    this.form.controls['dateTodaysDirector'].disable()
+    if (this.selectUsers) {
+      this.form.controls['directorName'].enable()
+      this.form.controls['directorSignature'].enable()
+      this.form.controls['dateTodaysDirector'].enable()
+    }
+    if (item.directorName != null) {
+      this.form.controls['directorName'].setValue(item.directorName)
+      this.form.controls['directorSignature'].setValue(item.directorSignature)
+      this.form.controls['dateTodaysDirector'].setValue(item.dateTodaysDirector)
+      this.form.controls['directorName'].disable()
+      this.form.controls['directorSignature'].disable()
+      this.form.controls['dateTodaysDirector'].disable()
+      this.validAdmin = true
+      this.disabled = false
+    }
 
     this.form.controls['residentName'].setValue(item.residentName)
     this.form.controls['chooseDate'].setValue(item.chooseDate)
@@ -96,16 +121,12 @@ export class Formulario10Component implements OnInit {
     this.form.controls['clientName'].setValue(item.clientName)
     this.form.controls['clientSignature'].setValue(item.clientSignature)
     this.form.controls['dateTodaysClient'].setValue(item.dateTodaysClient)
-    this.form.controls['directorName'].setValue(item.directorName)
-    this.form.controls['directorSignature'].setValue(item.directorSignature)
-    this.form.controls['dateTodaysDirector'].setValue(item.dateTodaysDirector)
-    this.disabled = false
   }
 
   createAuthorizationReleaseInformation(item: any){
     this.alert.loading();
     this._https.createAuthorizationReleaseInformation(item).then((resulta: any)=>{
-      this.getAuthorizationReleaseInformation(this.usersData.user.id)
+      this.getAuthorizationReleaseInformation(this.idUsers.id)
       this.alert.messagefin();
     }).catch((err: any)=>{
       console.log(err)

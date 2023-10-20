@@ -13,6 +13,7 @@ export const RoutersLink = {
     passwordUpdate:"passwordUpdate",
     home:"/home/dashboard",
     content:"home/content",
+    listManager:"home/listManager",
     profile:"home/profile",
     login:"pages/login/",
     loginApi:"login",
@@ -46,12 +47,13 @@ export const RoutersLink = {
     authorizationReleaseInformation:"authorizationReleaseInformation",
     phaseUpProgressTracking:"phaseUpProgressTracking",
     phaseUpProgressTrackingTwo:"phaseUpProgressTrackingTwo",
-    phaseUpProgressTrackingThree:"phaseUpProgressTrackingThree"
+    phaseUpProgressTrackingThree:"phaseUpProgressTrackingThree",
+    listUsers:"list/",
 };
 
 export const Menssage = {
     faile: "Please authenticate",
-    token:"U2FsdGVkX19YyFaXwKWyOqWfb2dW2AGl0kU85zGTg",
+    token:"U2FsdGVkX1+9DtHgtiCKJ9cjNdqEbjsugdQHm2q7oSc",
     emptyBolean: false,
     idImg:"No haz agregado una imagen",
     idEvents:"No haz seleccionado un evento",
@@ -61,6 +63,7 @@ export const Menssage = {
     error:"Error",
     tokenlist:"token",
     customerDetail:"customerDetail",
+    selectUsers:"selectUsers",
     menu:"menu",
     server:"En la conexión del servidor",
     userValid:"El correo ya se encuentra registrado",
@@ -90,8 +93,8 @@ export const Menssage = {
     contactPerson:"La persona de contacto es obligatorio",
     successExpo: "El registrado se ralizó correctamente",
     errorPassword: "Passwords are not the same",
-    name:"Naame is mandatory",
-    surName:"SurName is mandatory",
+    name:"Name is mandatory",
+    surName:"Last Name is mandatory",
     documentType:"Document Type is mandatory",
     documentNumber:"Document Number is mandatory",
     sex:"Sex is mandatory",

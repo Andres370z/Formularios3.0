@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Menssage } from 'src/app/models/router';
+import { Menssage, RoutersLink } from 'src/app/models/router';
 import { AlertService } from 'src/app/service/alert.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { LocalstoreService } from 'src/app/service/localstore.service';
@@ -27,12 +27,17 @@ export class ContentComponent implements OnInit {
   public question9: boolean = false;
   public question10: boolean = false;
   public question11: boolean = false;
+  public question12: boolean = false;
+  public question13: boolean = false;
+  public question14: boolean = false;
+  public selectUsers:any = [];
   constructor(private localStore: LocalstoreService,
     private _https:AuthService,
     private router: Router,
     private alert: AlertService) { 
       this.usersData = this.localStore.getSuccessLogin();
       this.customerDetail = this.localStore.getItem(Menssage.customerDetail)
+      this.selectUsers = this.localStore.getItem(Menssage.selectUsers)
       /* var data =  this.localStore.getItem(Menssage.menu)
       this.menuItemsStore = data == null ? []: data
       if (this.menuItemsStore.length == 0) {
@@ -92,5 +97,14 @@ export class ContentComponent implements OnInit {
   }
   async questionResult10(event: boolean){
     this.question11 = event;
+  }
+  async questionResult11(event: boolean){
+    this.question12 = event;
+  }
+  async questionResult12(event: boolean){
+    this.question13 = event;
+  }
+  async questionResult13(event: boolean){
+    this.question14 = event;
   }
 }

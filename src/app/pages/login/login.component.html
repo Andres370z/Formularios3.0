@@ -31,7 +31,7 @@
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
-                          <i class="material-icons">email</i>
+                          <i class="material-icons" [style]="'color:'+customerDetail.color+'!important;'">email</i>
                         </span>
                     </div>
                     <input type="email" formControlName="email" class="form-control" id="exampleInputEmail5" placeholder="Correo">
@@ -44,7 +44,7 @@
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
+                          <i class="material-icons" [style]="'color:'+customerDetail.color+'!important;'">lock_outline</i>
                         </span>
             </div>
             <input type="password" formControlName="passwordClient" class="form-control for mb-3" id="exampleInputEmail6" placeholder="Contraseña">

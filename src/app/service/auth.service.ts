@@ -71,7 +71,7 @@ export class AuthService {
   }
 
   gettotal(item: number, search: string){
-    return  this.registeresquest.GET(RoutersLink.gettotal+item+'&buscar='+search)
+    return  this.registeresquest.GET(RoutersLink.gettotal+item)
   }
 
   getmenu(item: number, ){
@@ -244,6 +244,9 @@ export class AuthService {
   createGeneralForms(inform:any){
     return  this.registeresquest.POST(RoutersLink.generalForms, inform)
   }
+  editGeneralForms(id:number, inform:any){
+    return  this.registeresquest.PUT(RoutersLink.generalForms+'/'+id, inform)
+  }
   getGeneralForms(item: any){
     return  this.registeresquest.POST(RoutersLink.generalFormsList, item)
   }
@@ -271,5 +274,7 @@ export class AuthService {
   getPhaseUpProgressTrackingThree(item: number){
     return  this.registeresquest.GET(RoutersLink.phaseUpProgressTrackingThree+'/'+item)
   }
-  
+  getListUsers(item: number){
+    return  this.registeresquest.GET(RoutersLink.listUsers+item)
+  }
 }

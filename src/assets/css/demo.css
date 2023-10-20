@@ -47,6 +47,10 @@ h6,
     color: #fff;
 }
 
+.card.card-signup.register select option {
+    color: #000 !important;
+}
+
 .mat-button.btn:focus,
 .mat-button.btn.focus,
 .mat-button.btn:hover,
@@ -99,6 +103,14 @@ h6,
     justify-content: center;
     align-content: center;
     flex-direction: column;
+}
+
+button.btn.btn-primary.btn-round.mt-4.register {
+    color: #000 !important;
+}
+
+.gruop {
+    width: 80%;
 }
 
 signature-pad canvas {

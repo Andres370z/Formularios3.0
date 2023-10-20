@@ -43,7 +43,7 @@
   </div> -->
     <div *ngIf="isMobileMenu()">
     </div>
-    <ul class="nav">
+    <ul class="nav" *ngIf="usersData.user.rolAppId != 1">
         <li class="nav-item">
             <!-- Single link -->
             <a class="nav-link" style="--dropdown-color: #fff;">
@@ -51,14 +51,36 @@
                 <p>My Apps</p>
             </a>
         </li>
-        <li class="nav-item" (click)="logout()">
+        <li class="nav-item" (click)="logout(3)">
             <a class="nav-link" style="--dropdown-color: #fff;">
                 <i class="material-icons" style="--dropdown-color: #fff;">logout</i>
                 <p>Salir</p>
             </a>
         </li>
     </ul>
-    <div class="item-exit" (click)="logout()">
+    <ul class="nav" *ngIf="usersData.user.rolAppId != 2">
+        <li class="nav-item" (click)="logout(1)">
+            <!-- Single link -->
+            <a class="nav-link" style="--dropdown-color: #fff;">
+                <i class="material-icons" style="--dropdown-color: #fff;"><mat-icon>content_paste</mat-icon></i>
+                <p>Registration list</p>
+            </a>
+        </li>
+        <li class="nav-item" (click)="logout(2)">
+            <!-- Single link -->
+            <a class="nav-link" style="--dropdown-color: #fff;">
+                <i class="material-icons" style="--dropdown-color: #fff;"><mat-icon>dashboard</mat-icon></i>
+                <p>check in</p>
+            </a>
+        </li>
+        <li class="nav-item" (click)="logout(3)">
+            <a class="nav-link" style="--dropdown-color: #fff;">
+                <i class="material-icons" style="--dropdown-color: #fff;">logout</i>
+                <p>Salir</p>
+            </a>
+        </li>
+    </ul>
+    <div class="item-exit" (click)="logout(3)">
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" style="--dropdown-color: #fff;">

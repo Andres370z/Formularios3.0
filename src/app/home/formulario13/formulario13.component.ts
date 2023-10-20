@@ -6,11 +6,12 @@ import { AuthService } from 'src/app/service/auth.service';
 import { LocalstoreService } from 'src/app/service/localstore.service';
 
 @Component({
-  selector: 'app-formulario11',
-  templateUrl: './formulario11.component.html',
-  styleUrls: ['./formulario11.component.css']
+  selector: 'app-formulario13',
+  templateUrl: './formulario13.component.html',
+  styleUrls: ['./formulario13.component.css']
 })
-export class Formulario11Component implements OnInit {
+export class Formulario13Component implements OnInit {
+
   public form: FormGroup;
   public selectedOption: any;
   public createForm: any;
@@ -25,7 +26,7 @@ export class Formulario11Component implements OnInit {
   public selectUsers:any;
   public id: number;
   public idUsers:any;
-  @Output() questionResult10: EventEmitter<boolean> = new EventEmitter();
+  @Output() questionResult12: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
     private localStore: LocalstoreService,
@@ -68,17 +69,18 @@ export class Formulario11Component implements OnInit {
       completedStepOne: [Menssage.empty, Validators.compose([Validators.required])],
       currentStepOne: [Menssage.empty, Validators.compose([Validators.required])],
       commentsNotesOne: [Menssage.empty, Validators.compose([Validators.required])],
-      usersClientId: [this.usersData.user.id, Validators.compose([Validators.required])],
+      usersClientId: [this.selectUsers.id, Validators.compose([Validators.required])],
       clientsProyectsId:[this.usersData.user.clientsProyectsId]
     })
     this.getPhaseUpProgressTracking(this.idUsers.id)
   }
   saveData(item: any){
-    console.log(this.form);
-    if (this.menuItemsStore.length == 0) {
+    console.log(this.menuItemsStore);
+
+    if (this.menuItemsStore.length == 1) {
       this.createPhaseUpProgressTracking(item)
     }
-    if (this.menuItemsStoreTwo.length == 0) {
+    if (this.menuItemsStoreTwo.length == 1) {
       this.createPhaseUpProgressTrackingTwo(item)
     }
   }
@@ -119,32 +121,28 @@ export class Formulario11Component implements OnInit {
     this.form.controls['anySteps'].setValue(item.anySteps)
     this.form.controls['currentStep'].setValue(item.programBalance)
     this.form.controls['commentsNotes'].setValue(item.programBalance)
-    this.validButton()
+    this.disabled = false
   }
 
   createPhaseUpProgressTracking(item: any){
     this.alert.loading();
     this._https.createPhaseUpProgressTracking(item).then((resulta: any)=>{
-      this.getPhaseUpProgressTracking(this.usersData.user.id)
+      this.getPhaseUpProgressTracking(this.idUsers.id)
       this.alert.messagefin();
     }).catch((err: any)=>{
       console.log(err)
       this.alert.error(Menssage.error, Menssage.server);
     });
   }
-  validButton(){
-    if (this.menuItemsStoreTwo.length != 0 && this.menuItemsStore.length != 0) {
-        this.disabled = Menssage.emptyBolean
-    }
-  }
+
   getPhaseUpProgressTracking(item: number){
     this.alert.loading();
     this._https.getPhaseUpProgressTracking(item).then((resulta: any)=>{
       this.menuItemsStore = resulta.data
       this.getPhaseUpProgressTrackingTwo(this.idUsers.id)
-      if (this.menuItemsStore.length != 0) {
-        this.disablePhaseUpProgressTracking(resulta.data[0])
-        this.questionResult10.emit(true)
+      if (this.menuItemsStore.length == 2) {
+        this.disablePhaseUpProgressTracking(resulta.data[1])
+        this.questionResult12.emit(true)
       }
       this.alert.messagefin();
     }).catch((err: any)=>{
@@ -176,7 +174,6 @@ export class Formulario11Component implements OnInit {
     this.form.controls['completedStepOne'].setValue(item.completedStep)
     this.form.controls['currentStepOne'].setValue(item.currentStep)
     this.form.controls['commentsNotesOne'].setValue(item.commentsNotes)
-    this.validButton()
   }
 
   createPhaseUpProgressTrackingTwo(item: any){
@@ -208,8 +205,8 @@ export class Formulario11Component implements OnInit {
     this.alert.loading();
     this._https.getPhaseUpProgressTrackingTwo(item).then((resulta: any)=>{
       this.menuItemsStoreTwo = resulta.data
-      if (this.menuItemsStoreTwo.length != 0) {
-        this.disablePhaseUpProgressTrackingTwo(resulta.data[0])
+      if (this.menuItemsStoreTwo.length == 2 ) {
+        this.disablePhaseUpProgressTrackingTwo(resulta.data[1])
       }
       this.alert.messagefin();
     }).catch((err: any)=>{

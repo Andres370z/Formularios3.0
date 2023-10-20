@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignaturePad } from 'angular2-signaturepad';
 import { Menssage } from 'src/app/models/router';
@@ -7,11 +7,12 @@ import { AuthService } from 'src/app/service/auth.service';
 import { LocalstoreService } from 'src/app/service/localstore.service';
 
 @Component({
-  selector: 'app-formulario12',
-  templateUrl: './formulario12.component.html',
-  styleUrls: ['./formulario12.component.css']
+  selector: 'app-formulario14',
+  templateUrl: './formulario14.component.html',
+  styleUrls: ['./formulario14.component.css']
 })
-export class Formulario12Component implements OnInit {
+export class Formulario14Component implements OnInit {
+
   @ViewChild(SignaturePad) signaturePad!: SignaturePad;
   public form: FormGroup;
   public selectedOption: any;
@@ -25,7 +26,6 @@ export class Formulario12Component implements OnInit {
   public selectUsers:any;
   public id: number;
   public idUsers:any;
-  @Output() questionResult11: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private myFormBuilder: FormBuilder,
     private localStore: LocalstoreService,
@@ -86,13 +86,12 @@ export class Formulario12Component implements OnInit {
   }
   saveData(item: any){
     console.log(this.form);
-    if (this.menuItemsStore.length == 0) {
+    if (this.menuItemsStore.length == 1) {
       this.createPhaseUpProgressTrackingThree(item)
     }
   }
 
   disablePhaseUpProgressTrackingThree(item: any){
-    console.log(item)
     this.form.controls['clientName'].disable()
     this.form.controls['unit'].disable()
     this.form.controls['chooseDate'].disable()
@@ -186,11 +185,9 @@ export class Formulario12Component implements OnInit {
     this.alert.loading();
     this._https.getPhaseUpProgressTrackingThree(item).then((resulta: any)=>{
       this.menuItemsStore = resulta.data
-      if (this.menuItemsStore.length != 0) {
-        this.disablePhaseUpProgressTrackingThree(resulta.data[0])
-        this.questionResult11.emit(true)
+      if (this.menuItemsStore.length == 2) {
+        this.disablePhaseUpProgressTrackingThree(resulta.data[1])
       }
-      
       this.alert.messagefin();
     }).catch((err: any)=>{
       console.log(err)
@@ -202,5 +199,6 @@ export class Formulario12Component implements OnInit {
     console.log(item);
     this.form.controls['directorSignature'].setValue(item)
   }
+
 
 }

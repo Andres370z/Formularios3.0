@@ -2,20 +2,28 @@
     width: 100%;
 }
 
-.mat-form-field-infix.ng-tns-c39-59 {
-    display: flex;
-}
-
 hr {
     border-color: #02416B;
 }
 
-.ajut-signature p {
-    font-size: 10px;
+mat-list-item {
+    margin-bottom: 20px;
 }
 
 .mat-option:hover {
     background: #02416B !important;
+}
+
+mat-list-item {
+    font-size: 12px;
+}
+
+mat-list-item mat-label {
+    font-size: 12px;
+}
+
+mat-list-item input {
+    font-size: 12px;
 }
 
 .card-header-rose {

@@ -112,7 +112,11 @@ export class LoginComponent implements OnInit, OnDestroy {
               console.log(resulta); 
                 this.localStore.setSuccessLogin(resulta)
                 this.localStore.removeEnd("reload")
-                this.router.navigate([RoutersLink.content]);
+                if (resulta.user.rolAppId == 1) {
+                  this.router.navigate([RoutersLink.listManager]);
+                }else{
+                  this.router.navigate([RoutersLink.content]);
+                }
                 this.alert.success(Menssage.exito, Menssage.success);
                 //this.alert.messagefin();
                 this.form.reset();
