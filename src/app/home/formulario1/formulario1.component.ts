@@ -4,7 +4,8 @@ import { Menssage } from 'src/app/models/router';
 import { AlertService } from 'src/app/service/alert.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { LocalstoreService } from 'src/app/service/localstore.service';
-
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-formulario1',
   templateUrl: './formulario1.component.html',
@@ -574,5 +575,38 @@ export class Formulario1Component implements OnInit {
       residentApplicationInformationId:itemList.id
     }
     return treatment;
+  }
+  downloadPDF() {
+    this.alert.loading();
+    // Extraemos el
+    const DATA = document.getElementById('htmlData');
+    const doc = new jsPDF('p', 'mm');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG');
+      const imgWidth = 210;
+      const pageHeight = 283;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+
+      doc.addImage(img, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        doc.addPage();
+        doc.addImage(img, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      return doc;
+    }).then((docResult) => {
+      this.alert.messagefin();
+      docResult.save(`${new Date().toISOString()}_Resident_Application_Information.pdf`);
+    });
   }
 }

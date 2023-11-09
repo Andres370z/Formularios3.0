@@ -1,4 +1,4 @@
-<div class="card ">
+<div class="card " id="htmlData">
     <div class="card-header card-header-rose card-header-icon">
         <img src="./../../../assets/img/2 (1).png">
     </div>
@@ -63,13 +63,19 @@
                     </mat-form-field>
                 </div>
 
-                <div class="col-4">
+                <div class="col-4" *ngIf="residentApplication.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Do you Have A Vehicle? </mat-label>
                         <mat-select formControlName="vehicleQuestion">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="residentApplication.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Do you Have A Vehicle?</mat-label>
+                        <input matInput formControlName="vehicleQuestion" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-4">
@@ -197,7 +203,7 @@
                 <!-- Status -->
                 <hr style="width:90%;">
                 <h4 class="card-title text-center">Status</h4>
-                <div class="col-4">
+                <div class="col-4" *ngIf="status.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Relationship Status: </mat-label>
                         <mat-select formControlName="relationShipStatus">
@@ -208,13 +214,25 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-4">
+                <div class="col-4" *ngIf="status.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Relationship Status:</mat-label>
+                        <input matInput formControlName="relationShipStatus" type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="status.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Do You Have Children: </mat-label>
                         <mat-select formControlName="statusChildren">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="status.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Do You Have Children:</mat-label>
+                        <input matInput formControlName="statusChildren" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-4" *ngIf="form.get('statusChildren').value ==='yes'">
@@ -224,13 +242,19 @@
                         <mat-hint>This field is required *</mat-hint>
                     </mat-form-field>
                 </div>
-                <div class="col-4">
+                <div class="col-4" *ngIf="status.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Have you ever had suicidal thoughts? </mat-label>
                         <mat-select formControlName="statusSuicidalThoughts">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="status.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>RHave you ever had suicidal thoughts? </mat-label>
+                        <input matInput formControlName="statusSuicidalThoughts" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-4" *ngIf="form.get('statusSuicidalThoughts').value==='yes'">
@@ -241,21 +265,31 @@
                     </mat-form-field>
                 </div>
                 <div class="col-4" *ngIf="form.get('statusSuicidalThoughts').value==='yes'">
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="fill" *ngIf="status.length == 0">
                         <mat-label>Is It Current? </mat-label>
                         <mat-select formControlName="statusCurrent">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
                     </mat-form-field>
+                    <mat-form-field appearance="fill" *ngIf="status.length != 0">
+                        <mat-label>Is It Current?</mat-label>
+                        <input matInput formControlName="statusCurrent" type="text">
+                    </mat-form-field>
                 </div>
-                <div class="col-6">
+                <div class="col-6" *ngIf="status.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Have You Been Arrested?</mat-label>
                         <mat-select formControlName="statusArrested">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="status.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been Arrested?</mat-label>
+                        <input matInput formControlName="statusArrested" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-6" *ngIf="form.get('statusArrested').value==='yes'">
@@ -265,13 +299,19 @@
                         <mat-hint>This field is required *</mat-hint>
                     </mat-form-field>
                 </div>
-                <div class="col-6">
+                <div class="col-6" *ngIf="status.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Have You Been Convicted? </mat-label>
                         <mat-select formControlName="statusConvicted">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="status.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been Convicted?</mat-label>
+                        <input matInput formControlName="statusConvicted" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-6" *ngIf="form.get('statusConvicted').value==='yes'">
@@ -281,7 +321,7 @@
                         <mat-hint>This field is required *</mat-hint>
                     </mat-form-field>
                 </div>
-                <div class="col-6">
+                <div class="col-6" *ngIf="status.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Are You A Sex Offender?</mat-label>
                         <mat-select formControlName="statusSexOffender">
@@ -290,13 +330,25 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-6">
+                <div class="col-6" *ngIf="status.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Are You A Sex Offender?</mat-label>
+                        <input matInput formControlName="statusSexOffender" type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="status.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Are You On Probation?</mat-label>
                         <mat-select formControlName="statusOnProbation">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="status.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Are You On Probation?</mat-label>
+                        <input matInput formControlName="statusOnProbation" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-6" *ngIf="form.get('statusOnProbation').value==='yes'">
@@ -329,13 +381,19 @@
                 <!-- Medications -->
                 <hr style="width:90%;">
                 <h4 class="card-title text-center">Medications</h4>
-                <div class="col-6">
+                <div class="col-6" *ngIf="medications.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Do You Take Medications? </mat-label>
                         <mat-select formControlName="takeMedications">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="medications.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Do You Take Medications?</mat-label>
+                        <input matInput formControlName="takeMedications" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-6" *ngIf="form.get('takeMedications').value==='yes'">
@@ -353,13 +411,19 @@
                     </mat-form-field>
                 </div>
 
-                <div class="col-6">
+                <div class="col-6" *ngIf="medications.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Any Mental Health Issues </mat-label>
                         <mat-select formControlName="mentalHealth">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="medications.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Any Mental Health Issues</mat-label>
+                        <input matInput formControlName="mentalHealth" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-6">
@@ -374,13 +438,19 @@
                 <!-- Treatment -->
                 <hr style="width:90%;">
                 <h4 class="card-title text-center">Treatment</h4>
-                <div class="col-6">
+                <div class="col-6" *ngIf="treatment.length == 0">
                     <mat-form-field appearance="fill">
                         <mat-label>Have You Been In Treatment? </mat-label>
                         <mat-select formControlName="beenTreatment">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="treatment.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been In Treatment?</mat-label>
+                        <input matInput formControlName="beenTreatment" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-6" *ngIf="form.get('beenTreatment').value==='yes'">
@@ -405,12 +475,18 @@
                     </mat-form-field>
                 </div>
                 <div class="col-6">
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="fill" *ngIf="treatment.length == 0">
                         <mat-label>Have You Been In Halfway?</mat-label>
                         <mat-select formControlName="treatmentHalfway">
                             <mat-option value="yes">Yes</mat-option>
                             <mat-option value="no">No</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" *ngIf="treatment.length != 0">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Have You Been In Halfway?</mat-label>
+                        <input matInput formControlName="treatmentHalfway" type="text">
                     </mat-form-field>
                 </div>
                 <div class="col-6" *ngIf="form.get('treatmentHalfway').value==='yes'">
@@ -477,5 +553,9 @@
             </div>
         </form>
     </div>
+</div>
+<div class="col-12 buttom">
+    <!--BOTON-->
+    <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" *ngIf="residentApplication.length != 0" (click)="downloadPDF()">Descargar PDF</button>
 </div>
 <!-- f -->

@@ -4,6 +4,7 @@
 
 hr {
     border-color: #02416B;
+    width: 100%;
 }
 
 .card-header-rose {
@@ -12,6 +13,14 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.font-header.text-center h4 {
+    font-size: 19px !important;
+}
+
+.row.align-items-center p {
+    font-size: 19px !important;
 }
 
 .card-header-rose img {

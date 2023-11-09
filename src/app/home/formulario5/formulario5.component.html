@@ -1,4 +1,4 @@
-<div class="card ">
+<div class="card " id="htmlDataCuatro">
     <div class="card-header card-header-rose card-header-icon">
         <img src="./../../../assets/img/2 (1).png">
     </div>
@@ -74,4 +74,8 @@
 
         </form>
     </div>
+</div>
+<div class="col-12 buttom">
+    <!--BOTON-->
+    <button mat-raised-button type="submit" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" *ngIf="menuItemsStore.length != 0" (click)="downloadPDF()">Descargar PDF</button>
 </div>
